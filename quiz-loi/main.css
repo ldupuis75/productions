@@ -1,0 +1,1001 @@
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=3af16084-ba56-49ca-b37d-0b49b59e1927");html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}@font-face{font-family:"AleoRegular";src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.eot);src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.eot?#iefix) format('embedded-opentype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.woff) format('woff'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.ttf) format('truetype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Regular-webfont.svg) format('svg')}@font-face{font-family:"AleoBold";src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.eot);src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.eot?#iefix) format('embedded-opentype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.woff) format('woff'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.ttf) format('truetype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/Aleo-Bold-webfont.svg) format('svg')}@font-face{font-family:"ProximaNovaBold";src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/fbc6b03a-b3a1-427c-a884-053deca3a53c.eot);src:url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/fbc6b03a-b3a1-427c-a884-053deca3a53c.eot?#iefix) format('embedded-opentype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/d999c07b-a049-4eb5-b8a6-4f36ae25e67e.woff) format('woff'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/4d4a75f5-d32a-4a09-8665-133afd39cc37.ttf) format('truetype'),url(//cartodb-assets.global.ssl.fastly.net/odyssey.js/8152bc4e-d700-4c78-b6be-326893e6f53f.svg) format('svg')}body{counter-reset: chapter;min-height:100%;background:#fff}html{min-height:100%}.progress-bar{position:fixed;left:0;top:0;height:3px;display:inline-block;background:#ff7373;width:20%;z-index:2}
+@font-face{font-family:"Proxima Nova Regular";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/27522D_B_0.eot?6f3b7a3a38b9') format("eot");src:url('http://s1.libe.com/font/license/27522D_B_0.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/27522D_B_0.woff?973092db2463') format("woff"),url('http://s1.libe.com/font/license/27522D_B_0.ttf?326b4ed42028') format("truetype"),url('http://s1.libe.com/font/license/27522D_B_0.svg#Proxima Nova Regular') format("svg")}@font-face{font-family:"Proxima Nova Regular Bold";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/27522D_C_0.eot?7651b0835130') format("eot");src:url('http://s1.libe.com/font/license/27522D_C_0.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/27522D_C_0.woff?1d97b03ffbee') format("woff"),url('http://s1.libe.com/font/license/27522D_C_0.ttf?c4b6119d8273') format("truetype"),url('http://s1.libe.com/font/license/27522D_C_0.svg#Proxima Nova Regular Bold') format("svg")}@font-face{font-family:"Trade Gothic Bold Cond";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.eot?1669fae0818a') format("eot");src:url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.woff?7f6be2b8eca9') format("woff"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.ttf?5dda5c1e2946') format("truetype"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.svg#Trade Gothic Bold Cond') format("svg")}
+
+
+* { border:0; margin:0; padding:0; list-style:none; font-size:100%; }
+body { 
+	font:16px/1.5em Georgia, "Times New Roman", sans-serif; 
+	color:white; 
+	background: #2C3E50; 
+	overflow: hidden;
+}
+
+/***** Full view layout ******/
+
+html, body { height:100%; }
+
+em {font-style:italic;}
+strong {font-weight: bold;}
+
+.sectionWrapper { display:table; height:100%; width:100%; }
+.vAlignWrapper { display:table-cell;  }
+.contentWrapper { 
+	padding:90px 35px; 
+	width:100%; /*770*/ 
+	margin:0 auto; 
+	background: #2C3E50;
+	z-index: 1;
+}
+
+#explications ul {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	list-style-type: square;
+  color: white;
+  font-size: 14px;
+}
+
+#explications li {
+	list-style-type: square;
+	margin-left: 40px;
+}
+
+#explications p {
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+
+#explications strong {
+	font-weight: bold;
+}
+
+#attention {
+color: #C42121;
+padding-top: 10px;
+}
+
+.trois-fin {
+  padding-bottom: 20px;
+}
+
+#auteur {
+  text-align: center;
+  font-size: 0.8em;
+  color: #6893BD;
+}
+/***** Content ******/			
+
+/* Links */
+
+.contentWrapper span {
+  font-family: "Proxima Nova Regular";
+color: rgb(196, 33, 33);
+}
+
+a { 
+	color:#6893BD;
+  text-decoration: none; 
+}
+
+a:hover { 
+	text-decoration:none; 
+}			
+
+/* Menu */
+
+.menu { 
+	padding-top:30px; 
+	text-align:center; 
+	z-index: 99999999;
+  position: relative;
+}
+
+.menu li { 
+	display:inline; 
+	margin:0 10px; 
+}
+
+
+svg#down {
+  background-color: #C42121;
+  width: 10%;
+  border-radius: 5px;
+}
+
+.menu a {
+color: #FFF;
+background-color: #C42121;
+padding-left: 20px;
+text-decoration: none;
+font-family: "Proxima Nova Regular";
+text-transform: uppercase;
+border-bottom: #A21B1B 6px solid;
+padding-bottom: 7px;
+padding-top: 13px;
+padding-right: 20px;
+font-size: 15px;
+}
+
+.menu a:hover {
+  background-color: #B01E1E;
+}
+
+#non {
+  background-color: #B3BD5F;
+  border-bottom: #969E51 6px solid;
+}
+
+#non:hover {
+  background-color: #A7B058;
+}
+
+/*Bons*/
+#svg-type {
+	position: fixed;
+	z-index: 100;
+	top: 65%;
+	left: 0;
+	width: 100%;
+	background-color: #2C3E50;
+}
+#bon3 {
+	position: fixed;
+	z-index: 999999999;
+}
+
+#bird61 {
+	transform: translate(1380, 70);
+}
+
+.bird6 {
+    animation-name: sunshine6;
+    -webkit-animation-name: sunshine6;
+    -moz-animation-name: sunshine6;
+    -ms-animation-name: sunshine6;
+    -o-animation-name: sunshine6;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+keyframes sunshine6 {
+  0%   {transform: translateX(1355px); fill: #3E5770;}
+  25%  {transform: translateX(1386.6px); fill: #3E5770;}
+  75%  {transform: translateX(1418.2px)}
+  100% {transform: translateX(1450px); fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine6 {
+  0%   {transform: translateX(1355px); fill: #3E5770;}
+  25%  {transform: translateX(1386.6px); fill: #3E5770;}
+  75%  {transform: translateX(1418.2px)}
+  100% {transform: translateX(1450px); fill: #C42121;}
+} 
+@-moz-keyframes sunshine6 {
+  0%   {transform: translateX(1355px); fill: #3E5770;}
+  25%  {transform: translateX(1386.6px); fill: #3E5770;}
+  75%  {transform: translateX(1418.2px)}
+  100% {transform: translateX(1450px); fill: #C42121;}
+}
+@-ms-keyframes sunshine6 {
+  0%   {transform: translateX(1355px); fill: #3E5770;}
+  25%  {transform: translateX(1386.6px); fill: #3E5770;}
+  75%  {transform: translateX(1418.2px)}
+  100% {transform: translateX(1450px); fill: #C42121;}
+} 
+@-o-keyframes sunshine6 {
+  0%   {transform: translateX(1355px); fill: #3E5770;}
+  25%  {transform: translateX(1386.6px); fill: #3E5770;}
+  75%  {transform: translateX(1418.2px)}
+  100% {transform: translateX(1450px); fill: #C42121;}
+}
+
+.bird5 {
+    animation-name: sunshine5;
+    -webkit-animation-name: sunshine5;
+    -moz-animation-name: sunshine5;
+    -ms-animation-name: sunshine5;
+    -o-animation-name: sunshine5;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshine5 {
+  0%   {transform: translateX(1100px); fill: #3E5770;}
+  25%  {transform: translateX(1183.3px); fill: #3E5770;}
+  75%  {transform: translateX(1266.6px)}
+  100% {transform: translateX(1350px); fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine5 {
+  0%   {transform: translateX(1100px); fill: #3E5770;}
+  25%  {transform: translateX(1183.3px); fill: #3E5770;}
+  75%  {transform: translateX(1266.6px)}
+  100% {transform: translateX(1350px); fill: #C42121;}
+} 
+@-moz-keyframes sunshine5 {
+  0%   {transform: translateX(1100px); fill: #3E5770;}
+  25%  {transform: translateX(1183.3px); fill: #3E5770;}
+  75%  {transform: translateX(1266.6px)}
+  100% {transform: translateX(1350px); fill: #C42121;}
+}
+@-ms-keyframes sunshine5 {
+  0%   {transform: translateX(1100px); fill: #3E5770;}
+  25%  {transform: translateX(1183.3px); fill: #3E5770;}
+  75%  {transform: translateX(1266.6px)}
+  100% {transform: translateX(1350px); fill: #C42121;}
+} 
+@-o-keyframes sunshine5 {
+  0%   {transform: translateX(1100px); fill: #3E5770;}
+  25%  {transform: translateX(1183.3px); fill: #3E5770;}
+  75%  {transform: translateX(1266.6px)}
+  100% {transform: translateX(1350px); fill: #C42121;}
+}
+
+.bird51 {
+    animation-name: sunshine51;
+    -webkit-animation-name: sunshine51;
+    -moz-animation-name: sunshine51;
+    -ms-animation-name: sunshine51;
+    -o-animation-name: sunshine51;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshine51 {
+  0%   {transform: translateX(770px); fill: #3E5770;}
+  25%  {transform: translateX(930px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1150px); fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine51 {
+  0%   {transform: translateX(770px); fill: #3E5770;}
+  25%  {transform: translateX(930px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1150px); fill: #C42121;}
+} 
+@-moz-keyframes sunshine51 {
+  0%   {transform: translateX(770px); fill: #3E5770;}
+  25%  {transform: translateX(930px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1150px); fill: #C42121;}
+}
+@-ms-keyframes sunshine51 {
+  0%   {transform: translateX(770px); fill: #3E5770;}
+  25%  {transform: translateX(930px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1150px); fill: #C42121;}
+} 
+@-o-keyframes sunshine51 {
+  0%   {transform: translateX(770px); fill: #3E5770;}
+  25%  {transform: translateX(930px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1150px); fill: #C42121;}
+}
+
+.bird41 {
+    animation-name: sunshine41;
+    -webkit-animation-name: sunshine41;
+    -moz-animation-name: sunshine41;
+    -ms-animation-name: sunshine41;
+    -o-animation-name: sunshine41;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+}
+
+
+keyframes sunshine41 {
+  0%   {transform: translateX(970px); fill: #3E5770;}
+  25%  {transform: translateX(1000px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1250px); fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine41 {
+  0%   {transform: translateX(970px); fill: #3E5770;}
+  25%  {transform: translateX(1000px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1250px); fill: #C42121;}
+} 
+@-moz-keyframes sunshine41 {
+  0%   {transform: translateX(970px); fill: #3E5770;}
+  25%  {transform: translateX(1000px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1250px); fill: #C42121;}
+}
+@-ms-keyframes sunshine41 {
+  0%   {transform: translateX(970px); fill: #3E5770;}
+  25%  {transform: translateX(1000px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1250px); fill: #C42121;}
+} 
+@-o-keyframes sunshine41 {
+  0%   {transform: translateX(970px); fill: #3E5770;}
+  25%  {transform: translateX(1000px); fill: #3E5770;}
+  75%  {transform: translateX(1090px)}
+  100% {transform: translateX(1250px); fill: #C42121;}
+}
+
+
+
+.bird4 {
+    animation-name: sunshine4;
+    -webkit-animation-name: sunshine4;
+    -moz-animation-name: sunshine4;
+    -ms-animation-name: sunshine4;
+    -o-animation-name: sunshine4;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshine4 {
+  0%   {transform: translateX(550px); fill: #3E5770;}
+  25%  {transform: translateX(750px); fill: #3E5770;}
+  75%  {transform: translateX(950px)}
+  100% {transform: translateX(1050px); fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine4 {
+  0%   {transform: translateX(550px); fill: #3E5770;}
+  25%  {transform: translateX(750px); fill: #3E5770;}
+  75%  {transform: translateX(950px)}
+  100% {transform: translateX(1050px); fill: #C42121;}
+} 
+@-moz-keyframes sunshine4 {
+  0%   {transform: translateX(550px); fill: #3E5770;}
+  25%  {transform: translateX(750px); fill: #3E5770;}
+  75%  {transform: translateX(950px)}
+  100% {transform: translateX(1050px); fill: #C42121;}
+}
+@-ms-keyframes sunshine4 {
+  0%   {transform: translateX(550px); fill: #3E5770;}
+  25%  {transform: translateX(750px); fill: #3E5770;}
+  75%  {transform: translateX(950px)}
+  100% {transform: translateX(1050px); fill: #C42121;}
+} 
+@-o-keyframes sunshine4 {
+  0%   {transform: translateX(550px); fill: #3E5770;}
+  25%  {transform: translateX(750px); fill: #3E5770;}
+  75%  {transform: translateX(950px)}
+  100% {transform: translateX(1050px); fill: #C42121;}
+}
+
+.bird3 {
+    animation-name: sunshine3;
+    -webkit-animation-name: sunshine3;
+    -moz-animation-name: sunshine3;
+    -ms-animation-name: sunshine3;
+    -o-animation-name: sunshine3;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshine3 {
+  0%   {transform: translateX(420px); fill: #3E5770;}
+  25%  {transform: translateX(630px); fill: #3E5770;}
+  75%  {transform: translateX(840px)}
+  100% {transform: translateX(950px); fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine3 {
+  0%   {transform: translateX(420px); fill: #3E5770;}
+  25%  {transform: translateX(630px); fill: #3E5770;}
+  75%  {transform: translateX(840px)}
+  100% {transform: translateX(950px); fill: #C42121;}
+} 
+@-moz-keyframes sunshine3 {
+  0%   {transform: translateX(420px); fill: #3E5770;}
+  25%  {transform: translateX(630px); fill: #3E5770;}
+  75%  {transform: translateX(840px)}
+  100% {transform: translateX(950px); fill: #C42121;}
+}
+@-ms-keyframes sunshine3 {
+  0%   {transform: translateX(420px); fill: #3E5770;}
+  25%  {transform: translateX(630px); fill: #3E5770;}
+  75%  {transform: translateX(840px)}
+  100% {transform: translateX(950px); fill: #C42121;}
+} 
+@-o-keyframes sunshine3 {
+  0%   {transform: translateX(420px); fill: #3E5770;}
+  25%  {transform: translateX(630px); fill: #3E5770;}
+  75%  {transform: translateX(840px)}
+  100% {transform: translateX(950px); fill: #C42121;}
+}
+
+.bird2 {
+    animation-name: sunshine2;
+    -webkit-animation-name: sunshine2;
+    -moz-animation-name: sunshine2;
+    -ms-animation-name: sunshine2;
+    -o-animation-name: sunshine2;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshine2 {
+  0%   {transform: translateX(130px); fill: #3E5770;}
+  25%  {transform: translateX(403.3px); fill: #3E5770;}
+  75%  {transform: translateX(676px)}
+  100% {transform: translateX(850px); fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine2 {
+  0%   {transform: translateX(130px); fill: #3E5770;}
+  25%  {transform: translateX(403.3px); fill: #3E5770;}
+  75%  {transform: translateX(676px)}
+  100% {transform: translateX(850px); fill: #C42121;}
+} 
+@-moz-keyframes sunshine2 {
+  0%   {transform: translateX(130px); fill: #3E5770;}
+  25%  {transform: translateX(403.3px); fill: #3E5770;}
+  75%  {transform: translateX(676px)}
+  100% {transform: translateX(850px); fill: #C42121;}
+}
+@-ms-keyframes sunshine2 {
+  0%   {transform: translateX(130px); fill: #3E5770;}
+  25%  {transform: translateX(403.3px); fill: #3E5770;}
+  75%  {transform: translateX(676px)}
+  100% {transform: translateX(850px); fill: #C42121;}
+} 
+@-o-keyframes sunshine2 {
+  0%   {transform: translateX(130px); fill: #3E5770;}
+  25%  {transform: translateX(403.3px); fill: #3E5770;}
+  75%  {transform: translateX(676px)}
+  100% {transform: translateX(850px); fill: #C42121;}
+}
+
+.bird {
+    animation-name: sunshine;
+    -webkit-animation-name: sunshine;
+    -moz-animation-name: sunshine;
+    -ms-animation-name: sunshine;
+    -o-animation-name: sunshine;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshine {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshine {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+@-moz-keyframes sunshine {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+}
+@-ms-keyframes sunshine {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+@-o-keyframes sunshine {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+}
+
+.birdbis {
+    animation-name: sunshinebis;
+    -webkit-animation-name: sunshinebis;
+    -moz-animation-name: sunshinebis;
+    -ms-animation-name: sunshinebis;
+    -o-animation-name: sunshinebis;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshinebis {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshinebis {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+@-moz-keyframes sunshinebis {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+}
+@-ms-keyframes sunshinebis {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+@-o-keyframes sunshinebis {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+}
+
+.birdter {
+    animation-name: sunshineter;
+    -webkit-animation-name: sunshineter;
+    -moz-animation-name: sunshineter;
+    -ms-animation-name: sunshineter;
+    -o-animation-name: sunshineter;        
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;        
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+}
+
+
+keyframes sunshineter {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+
+@-webkit-keyframes sunshineter {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+@-moz-keyframes sunshineter {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+}
+@-ms-keyframes sunshineter {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+} 
+@-o-keyframes sunshineter {
+  0%   {fill: #3E5770;}
+  25%  {fill: #3E5770;}
+  100% {fill: #C42121;}
+}
+
+
+/*keyframes sunshine {
+  0%   {fill: black}
+  50%  {fill: grey}
+  100% {fill: #C42121}
+} 
+
+@-webkit-keyframes sunshine {
+  0%   {fill: black}
+  50%  {fill: grey}
+  100% {fill: #C42121}
+} 
+@-moz-keyframes sunshine {
+  0%   {fill: black}
+  50%  {fill: grey}
+  100% {fill: #C42121}
+}
+@-ms-keyframes sunshine {
+  0%   {fill: black}
+  50%  {fill: grey}
+  100% {fill: #C42121}
+} 
+@-o-keyframes sunshine {
+  0%   {fill: black}
+  50%  {fill: grey}
+  100% {fill: #C42121}
+}*/
+
+
+svg#bon2 {
+display: none;
+}
+
+/*#surv {
+	position: fixed;
+right: 9%;
+top: 51%;
+width: 60px;
+}
+
+#non-surv {
+position: fixed;
+left: 16%;
+top: 51%;
+width: 60px;
+}
+*/
+
+svg#bon1 {
+  height: 750px;
+}
+text {
+	font-size: 8em;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+/* Text */
+
+.contentWrapper p { 
+	width: 50%;
+	margin-right: auto;
+	margin-left: auto; 
+  color: white;
+}
+
+/* Titles */
+
+.title-h1 { 
+	text-align:center; 
+	font: 90px "Trade Gothic Bold Cond";
+	color: white;
+	letter-spacing: -0.0526316em;
+	margin-bottom: 10px; 
+	line-height: 1em;
+}
+
+.sub-h1 { 
+	text-align:center; 
+	font: 60px "Trade Gothic Bold Cond";
+	color: black;
+	letter-spacing: -0.0526316em;
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+	line-height: 0.8em;
+  color: white;
+  line-height: 55px;
+  padding-top: 50px;
+}
+
+.title-h2 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 300;
+	font-size: 25px;
+	margin: 0px 0px 15px;
+	text-align: center;
+	line-height: 1.3em;
+	width: 35%;
+	margin-left: auto;
+	margin-right: auto;
+  color: white;
+}
+
+.title-h2 a:hover {
+  color: #C42121;
+}
+/* Lists */
+
+.list-1 { margin-left:15px; margin-bottom:20px; }
+.list-1 li { list-style:square; }
+
+/* Cosmetic */
+
+/***** Parallax ******/
+
+.sectionWrapper { position:relative; }
+
+.ensavoirplus {display: none;}
+
+
+@media (min-width:700px) and (max-width:1700px) {
+
+h1.title-h1 {
+font-size: 60px;
+}
+
+h2.title-h2 {
+font-size: 20px;
+}
+
+h1.sub-h1 {
+font-size: 40px;
+line-height: 40px;
+width: 80%;
+padding-top: 50px;
+padding-bottom: 20px;
+}
+
+h1#attention {
+  padding-top: 0;
+}
+
+#explications {
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+}
+
+#explications li {
+  width: 100%;
+  margin-left: 0;
+}
+
+#explications ul {
+  width: 65%;
+}
+
+.contentWrapper p {
+  width: 60%;
+}
+
+svg#bon2 {
+display: none;
+}
+
+
+svg#bon1 {
+width: 100%;
+height: 580px; 
+display: block;
+  position: fixed;
+  z-index: 100;
+  top: 70%;
+  left: 0;
+  width: 100%;
+
+}
+
+path {
+width: 100%;
+height: 600px;
+}
+
+
+.ensavoirplus {display: none;}
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 680px) {
+
+body {overflow: scroll;}
+
+h1.title-h1 {
+font-size: 2.5em;
+}
+
+h2.title-h2 {
+font-size: 1em;
+width: 100%;
+padding-bottom: 40px;
+}
+
+#auteur {
+  font-size: 1em;
+}
+
+h1.sub-h1 {
+font-size: 2em;
+line-height: 1em;
+padding-bottom: 50px;
+width: 100%;
+}
+
+.menu a {
+  font-size: 0.9em;
+  margin-top: 10em;
+  position: relative;
+  top: 50%;
+}
+
+.menu li {
+  display: block;
+  margin-bottom: 35px;
+}
+
+.contentWrapper {
+  padding: 0;
+  padding-top: 75px;
+}
+
+.contentWrapper p {
+  width: 100% !important;
+  font-size: 1em !important;
+  line-height: 1.5em;
+  padding-left: 5px;
+}
+
+#explications ul {
+  font-size: 1em;
+  line-height: 1.5em;
+  width: 100%;
+  margin-left: 0;
+}
+
+.sectionWrapper {
+  height: 10000px;
+}
+
+#e1, #e2, #e3, #e4, #e5, #e6, #e7, #e8, #e9 {
+  display: none;
+}
+
+svg#bon2 {
+display: none;
+}
+
+
+svg#bon1 {
+display: none;
+}
+
+path {
+width: 100%;
+height: 600px;
+}
+
+.ensavoirplus {
+  display: block;font-size: 1em;
+  padding-bottom: 0.6em; 
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+}
