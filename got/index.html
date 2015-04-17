@@ -1,0 +1,133 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./libe.css" />
+	<script type="text/javascript">
+// VARIABLES
+var trucs = ["tabourets","féculents","gifs","émojis","hommes politiques","poules","patrons célèbres","parents dépassés","courgettes","nains","positions sexuelles","Hodor","dragons","caténaires","Dragibus®","journaux","Twittos"];
+var personnes = ["cette petite fille","François Hollande","Manuel Valls","Jean-Luc Mélenchon","Barack Obama","ce cheval","Freud","Philippe Risoli","Hodor","ce coiffeur","un nain","Laurent Joffrin","Michel Houellebecq","Valérie Pécresse","Raël","cette prostituée","un Chinois"];
+var personnages = ["Arya Stark","Tyrion Lannister","Hodor","Fantôme, le loup de Jon Snow,","Jon Snow","Ygrite","la prostituée du S02E07","Daenerys Targaryen","Brienne de Torth","Petyr Baelish","Ned Stark","le dragon noir de Daenerys","Roose Bolton","Tywin Lannister","ce gardien du Mur","Gilly, fille et femme de Craster,"];
+var institutions = ["Bourg-la-Reine","la bibliothèque de Rennes","le Libéria","le gouvernement","Le Camion qui fume","la Manif pour tous","Hodor","Barack Obama","le Fight Club","Charlie Hebdo"];
+var idees = ["l’inceste","la vie à Libé","le piratage","la loi sur le renseignement","le réchauffement climatique","Ebola","le cancer du foie","l’autisme","Hodor","le capitalisme","la mort","la vie","la société de consommation","un dragon","le Nutella®","Charlie Hebdo","le féminisme"];
+var chiffres = ["dix","quinze","1&nbsp;435","45","77","854","onze","trois","27","42"];
+
+// COMPOSITION DE LA PHRASE
+function hasard(table) {
+	var chiffre = Math.floor((Math.random() * table.length));
+	return table[chiffre];
+}
+
+function composition() {
+	var chiffre = Math.floor((Math.random() * 14) + 1);
+	console.log(chiffre)
+	switch(chiffre) {
+		case 1:
+		return "Si les personnages de «Game of Thrones» étaient des "+hasard(trucs);
+		break;
+		case 2:
+		return "Notre résumé de «Game of Thrones» en "+hasard(chiffres)+" "+hasard(trucs);
+		break;
+		case 3:
+		return "Ce que les "+hasard(trucs)+" peuvent apprendre de «Game of Thrones»";
+		break;
+		case 4:
+		return "[VIDEO] On a montré l’épisode 9 de la saison 3 de «Game of Thrones» à "+hasard(personnes)+", sa réaction va vous étonner";
+		break;
+		case 5:
+		return "On vous explique "+hasard(idees)+" avec "+hasard(chiffres)+" extraits de «Game of Thrones»";
+		break;
+		case 6:
+		return "On vous explique "+hasard(institutions)+" en "+hasard(chiffres)+" gifs tirés de «Game of Thrones»";
+		break;
+		case 7:
+		return "Comment «Game of Thrones» a changé notre perception sur "+hasard(idees);
+		break;
+		case 8:
+		return "Comment "+hasard(idees)+" explique pourquoi Hodor ne dit que «Hodor»";
+		break;
+		case 9:
+		return "[VIDEO] «Game of Thrones» : "+hasard(personnes)+" imite "+hasard(personnages)+" à la perfection";
+		break;
+		case 10:
+		return "Incroyable : "+hasard(institutions)+" utilise "+hasard(personnages)+" pour sa communication";
+		break;
+		case 11:
+		return "Le Tumblr hilarant qui compare "+hasard(personnages)+" avec des "+hasard(trucs);
+		break;
+		case 12:
+		return "Top "+hasard(chiffres)+" des "+hasard(trucs)+" dans «Game of Thrones»";
+		break;
+		case 13:
+		return "[VIDEO] L’incroyable apparition de "+hasard(personnes)+" dans le S05E02 de «Game of Thrones»";
+		break;
+		default:
+		return "Non, vous n’avez rien compris à «Game of Thrones», et on vous dit pourquoi";
+		break;
+	}
+}
+
+	// PUBLICATION
+function publication() {
+	titre = composition();
+	tweet = encodeURI(titre);
+	$("#titre").html(titre);
+	texte = '<a onclick="publication()" href="#" name="Recharger">Essayer un autre titre</a><a href="https://twitter.com/share?url=http://www.liberation.fr/culture/2015/04/14/ce-titre-sur-game-of-thrones-va-vous-surprendre_1240779&amp;via=libe&amp;related=libe&amp;hashtags=GoTitres&amp;text='+tweet+'" target="_blank" class="tweet" value="Tweeter">Partager sur Twitter</a>';
+	$("#menu").html(texte);
+}
+
+	</script>
+	<style>
+		* {
+			border: 0;
+			margin: 0;
+		}
+		body {
+			width: 100%;
+		}
+		#container {
+			background:#f2f2f2;
+			padding: 10px;
+			border:1px solid #d7d7d7;
+			margin: 5px;
+		}
+		h2 {
+			font-family: "Trade Gothic Bold Cond";
+			font-size: 1.9em;
+  			line-height: 1;
+  			text-align: center;
+  			margin: 5px auto;
+		}
+		#menu {
+			display: block;
+			width:100%;			
+			margin: 20px -50px 0 0;
+			text-align: center;
+		}
+		#menu a {
+			display:inline-block;
+			width:200px;
+			color: #FFF;
+			background-color: #C42121;
+			padding: 10px 20px 7px 20px;
+			text-decoration: none;
+			font-family: "Proxima Nova Regular";
+			text-transform: uppercase;
+			border-bottom: #A21B1B 6px solid;
+			font-size: 15px;
+			margin: 0 10px;
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h2 id="titre"></h2>
+		<div id="menu"></div>
+	</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	publication();
+});
+</script>
+</body>
+</html>
