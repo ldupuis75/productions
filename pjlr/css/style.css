@@ -129,7 +129,6 @@ p {
 	height: 60px;
 	font-size: 1.2em;
 	margin-top: 6%;
-	border: 5px solid #4BC0A1;
 	top: 0;
 	left: 50%;
 	transform: translate(-50%, 0);
@@ -144,12 +143,6 @@ p {
 	padding-right: 20px;
 	padding-top: 20px;
 	padding-bottom: 21px;
-	color: #4BC0A1;
-}
-
-#menu li.selected {
-	color: #fff;
-	background: #4BC0A1;
 }
 
 #menu li a {
@@ -173,7 +166,48 @@ p {
 	line-height: 2.5rem;
 }
 
-.pages span {
+
+/* Colors */
+.wrapper-une-phrase .pages span, .wrapper-une-phrase #menu li {
 	color: #4BC0A1;
 }
+.wrapper-une-phrase #menu ul {	
+	border: 5px solid #4BC0A1;
+}
+.wrapper-une-phrase #menu li.selected {
+	color: #fff;
+	background: #4BC0A1;
+}
 
+.wrapper-en-details .pages span, .wrapper-en-details #menu li {
+	color: #f0f;
+}
+.wrapper-en-details #menu ul {	
+	border: 5px solid #f0f;
+}
+.wrapper-en-details #menu li.selected {
+	color: #fff;
+	background: #f0f;
+}
+
+.wrapper-dans-la-vraie-vie .pages span, .wrapper-dans-la-vraie-vie #menu li {
+	color: #f00;
+}
+.wrapper-dans-la-vraie-vie #menu ul {	
+	border: 5px solid #f00;
+}
+.wrapper-dans-la-vraie-vie #menu li.selected {
+	color: #fff;
+	background: #f00;
+}
+
+.wrapper-avec-des-poissons .pages span, .wrapper-avec-des-poissons #menu li {
+	color: #00f;
+}
+.wrapper-avec-des-poissons #menu ul {	
+	border: 5px solid #00f;
+}
+.wrapper-avec-des-poissons #menu li.selected {
+	color: #fff;
+	background: #00f;
+}
