@@ -95,28 +95,8 @@ p {
 	font-weight: bold;
 }
 
-#page-2 {
-	margin-top: 3em
-}
-
-
-#page-2 .selected {
-	background-color: #4BC0A1;
-	color: white;
-}
-
-#page-3 {
-	margin-top: 3em;
-}
-
-#page-4 {
-	margin-top: 3em;
-}
-
-
-#page-3 .selected {
-	background-color: #F19425;
-	color: white;
+.wrapper {
+	padding: 0 20px;
 }
 
 #menu {
@@ -155,10 +135,15 @@ p {
 	float: left;
 	display: block;
 	margin-top: 3em;
-	padding-left: 1%;
+	padding: 8px;
 }
 
-.pages .une-phrase {
+.pages.highlighted {
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+	border-radius: .3em;
+}
+
+.pages p {
 	font-family: "Montserrat",sans-serif;
 	font-size: 2em;
 	width: 100%;
@@ -168,7 +153,7 @@ p {
 
 
 /* Colors */
-.wrapper .pages span, .wrapper #menu li {
+.wrapper .pages span, .wrapper #menu li, .wrapper .twitter-share-button {
 	color: #4BC0A1;
 	transition: color .3s;
 }
@@ -182,7 +167,7 @@ p {
 	transition: color .3s, backgruond-color .3s;
 }
 
-.wrapper-une-phrase .pages span, .wrapper-une-phrase #menu li {
+.wrapper-une-phrase .pages span, .wrapper-une-phrase #menu li, .wrapper-une-phrase .twitter-share-button {
 	color: #4BC0A1;
 }
 .wrapper-une-phrase #menu ul {	
@@ -193,7 +178,7 @@ p {
 	background: #4BC0A1;
 }
 
-.wrapper-en-details .pages span, .wrapper-en-details #menu li {
+.wrapper-en-details .pages span, .wrapper-en-details #menu li, .wrapper-en-details .twitter-share-button {
 	color: #EFC94C;
 }
 .wrapper-en-details #menu ul {	
@@ -204,7 +189,7 @@ p {
 	background: #EFC94C;
 }
 
-.wrapper-dans-la-vraie-vie .pages span, .wrapper-dans-la-vraie-vie #menu li {
+.wrapper-dans-la-vraie-vie .pages span, .wrapper-dans-la-vraie-vie #menu li, .wrapper-dans-la-vraie-vie .twitter-share-button {
 	color: #E27A3F;
 }
 .wrapper-dans-la-vraie-vie #menu ul {	
@@ -215,7 +200,7 @@ p {
 	background: #E27A3F;
 }
 
-.wrapper-avec-des-poissons .pages span, .wrapper-avec-des-poissons #menu li {
+.wrapper-avec-des-poissons .pages span, .wrapper-avec-des-poissons #menu li, .wrapper-avec-des-poissons .twitter-share-button {
 	color: #DF4949;
 }
 .wrapper-avec-des-poissons #menu ul {	
@@ -224,4 +209,20 @@ p {
 .wrapper-avec-des-poissons #menu li.selected {
 	color: #fff;
 	background: #DF4949;
+}
+
+/* Twitter */
+.pages .une-phrase {
+	padding-bottom: 20px;
+}
+
+.twitter-share-button {
+	display: none;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+
+.twitter-share-button:hover {
+	color: #000;
 }
