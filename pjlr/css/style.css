@@ -168,6 +168,16 @@ p {
 
 
 /* Colors */
+.wrapper .pages span, .wrapper #menu li {
+	transition: color .3s linear;
+}
+.wrapper #menu ul {
+	transition: border-color .3s linear;
+}
+.wrapper #menu li.selected {
+	transition: * .3s linear;
+}
+
 .wrapper-une-phrase .pages span, .wrapper-une-phrase #menu li {
 	color: #4BC0A1;
 }
@@ -180,34 +190,34 @@ p {
 }
 
 .wrapper-en-details .pages span, .wrapper-en-details #menu li {
-	color: #f0f;
+	color: #EFC94C;
 }
 .wrapper-en-details #menu ul {	
-	border: 5px solid #f0f;
+	border: 5px solid #EFC94C;
 }
 .wrapper-en-details #menu li.selected {
 	color: #fff;
-	background: #f0f;
+	background: #EFC94C;
 }
 
 .wrapper-dans-la-vraie-vie .pages span, .wrapper-dans-la-vraie-vie #menu li {
-	color: #f00;
+	color: #E27A3F;
 }
 .wrapper-dans-la-vraie-vie #menu ul {	
-	border: 5px solid #f00;
+	border: 5px solid #E27A3F;
 }
 .wrapper-dans-la-vraie-vie #menu li.selected {
 	color: #fff;
-	background: #f00;
+	background: #E27A3F;
 }
 
 .wrapper-avec-des-poissons .pages span, .wrapper-avec-des-poissons #menu li {
-	color: #00f;
+	color: #DF4949;
 }
 .wrapper-avec-des-poissons #menu ul {	
-	border: 5px solid #00f;
+	border: 5px solid #DF4949;
 }
 .wrapper-avec-des-poissons #menu li.selected {
 	color: #fff;
-	background: #00f;
+	background: #DF4949;
 }
