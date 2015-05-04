@@ -169,13 +169,17 @@ p {
 
 /* Colors */
 .wrapper .pages span, .wrapper #menu li {
-	transition: color .3s linear;
+	color: #4BC0A1;
+	transition: color .3s;
 }
 .wrapper #menu ul {
-	transition: border-color .3s linear;
+	border: 5px solid #4BC0A1;
+	transition: border-color .3s;
 }
 .wrapper #menu li.selected {
-	transition: * .3s linear;
+	color: #fff;
+	background: #4BC0A1;
+	transition: color .3s, backgruond-color .3s;
 }
 
 .wrapper-une-phrase .pages span, .wrapper-une-phrase #menu li {

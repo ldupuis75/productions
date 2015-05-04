@@ -24,11 +24,11 @@ $(function() {
 
 	activateSection('une-phrase');
 
-    //   $('.isotope').isotope({
-    //     itemSelector : '.pages',
-    //     masonry : {
-    //       columnWidth : 100
-    //     }
-    //   });
+      $('.isotope').isotope({
+        itemSelector : '.pages',
+        masonry : {
+          columnWidth : 50
+        }
+      });
 });
 
