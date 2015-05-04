@@ -52,10 +52,10 @@ $(function() {
 	});
 	$('.pages .une-phrase').each(function() {
 		var button = $('<a href="#" class="twitter-share-button"><i class="fa fa-twitter"></i></a>');
+		var text = $(this).siblings('h3').text() + " : j'ai compris ";
+		var link = "https://twitter.com/intent/tweet?original_referer=" + "" + "&text=" + text + "&url=";
 		button.on('click', function(event) {
 			event.preventDefault();
-
-			var link = "https://twitter.com/intent/tweet?original_referer=" + "" + "&text=test&url=";
 			window.open(link);
 		});
 		$(this).append(button);
