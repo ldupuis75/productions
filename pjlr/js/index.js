@@ -83,6 +83,10 @@ $(function() {
 			}
 		});
 		$('body').scrollTop($("#" + id).position().top);
+
+		window.setTimeout(function() {
+			$('.fadedout').removeClass('fadedout');
+		}, 10000);
 	}
 
 	var menu = $("#menu");
