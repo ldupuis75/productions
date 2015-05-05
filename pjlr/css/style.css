@@ -300,6 +300,10 @@ p {
 		background-size: auto 100%;
 	}
 
+	h2 {
+		width: 90%;
+	}
+
 	#main-header {
 		position: relative;
 	}

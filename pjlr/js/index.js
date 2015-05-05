@@ -13,7 +13,8 @@ $(function() {
 		});
 	};
 
-	var activateSection = function(className) {
+	var activateSection = function(className, noscroll) {
+		noscroll = noscroll || false;
 		// Change colors
 		$('.pagewrapper').removeClass('wrapper-une-phrase wrapper-en-details wrapper-quel-probleme wrapper-dans-la-vraie-vie wrapper-avec-des-poissons wrapper-savoir-plus');
 		$('.pagewrapper').addClass('wrapper-' + className);
@@ -39,8 +40,10 @@ $(function() {
 		callIsotope(className);
 
 		// Scroll up
-		if (window.innerWidth <= 992) {
-			$('body').scrollTop(menuTop);
+		if (!noscroll) {		
+			if (window.innerWidth <= 992) {
+				$('body').scrollTop(menuTop);
+			}
 		}
 	};
 
@@ -72,7 +75,7 @@ $(function() {
 	$('body').append($('<div>').addClass('hidden'));
 
 	// Initialize
-	activateSection('une-phrase');
+	activateSection('une-phrase', true);
 
 	// Check if there's a #
 	if (window.location.hash != null && window.location.hash.length > 0) {
