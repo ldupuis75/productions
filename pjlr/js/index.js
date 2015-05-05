@@ -21,10 +21,7 @@ $(function() {
 		$('#menu li.' + className).addClass('selected');
 
 		// Change what is displayed
-		$('.pages .une-phrase').hide();
-		$('.pages .en-details').hide();
-		$('.pages .dans-la-vraie-vie').hide();
-		$('.pages .avec-des-poissons').hide();
+		$('.pages p').hide();
 		$('.pages .' + className).show();
 
 		if (['en-details'].indexOf(className) >= 0) {
