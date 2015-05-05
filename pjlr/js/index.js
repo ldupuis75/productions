@@ -1,4 +1,6 @@
 $(function() {
+	var menuTop = $("#menu").position().top;
+
 	var callIsotope = function(className) {
 		$('.isotope').isotope({
 			itemSelector : '.pages',
@@ -13,8 +15,8 @@ $(function() {
 
 	var activateSection = function(className) {
 		// Change colors
-		$('.wrapper').removeClass('wrapper-une-phrase wrapper-en-details wrapper-quel-probleme wrapper-dans-la-vraie-vie wrapper-avec-des-poissons wrapper-savoir-plus');
-		$('.wrapper').addClass('wrapper-' + className);
+		$('.pagewrapper').removeClass('wrapper-une-phrase wrapper-en-details wrapper-quel-probleme wrapper-dans-la-vraie-vie wrapper-avec-des-poissons wrapper-savoir-plus');
+		$('.pagewrapper').addClass('wrapper-' + className);
 
 		// Activate menu item
 		$('#menu li').removeClass('selected');
@@ -35,6 +37,11 @@ $(function() {
 
 		// Reorder content
 		callIsotope(className);
+
+		// Scroll up
+		if (window.innerWidth <= 992) {
+			$('body').scrollTop(menuTop);
+		}
 	};
 
 	// Register menu actions
@@ -52,7 +59,8 @@ $(function() {
 	});
 	$('.pages .une-phrase').each(function() {
 		var button = $('<a href="#" class="twitter-share-button"><i class="fa fa-twitter"></i></a>');
-		var text = $(this).siblings('h3').text() + " : j'ai compris ";
+		var text = encodeURIComponent($(this).siblings('h3').text() + " : j'ai tout compris à la Loi Renseignement grâce à @libe. Et vous ? #pjlr");
+		var url = window.location.href + '#'
 		var link = "https://twitter.com/intent/tweet?original_referer=" + "" + "&text=" + text + "&url=";
 		button.on('click', function(event) {
 			event.preventDefault();
@@ -67,16 +75,14 @@ $(function() {
 	activateSection('une-phrase');
 
 	// Check if there's a #
-	if (window.location.hash != null) {
-		if (window.location.hash.match('#page-[0-9]')) {
-			var id = window.location.hash.slice(1, window.location.hash.length);
-			$('.pages').each(function() {
-				if ($(this).attr('id') != id) {
-					$(this).addClass('fadedout');
-				}
-			});
-			$('body').scrollTop($("#" + id).position().top);
-		}
+	if (window.location.hash != null && window.location.hash.length > 0) {
+		var id = window.location.hash.slice(1, window.location.hash.length);
+		$('.pages').each(function() {
+			if ($(this).attr('id') != id) {
+				$(this).addClass('fadedout');
+			}
+		});
+		$('body').scrollTop($("#" + id).position().top);
 	}
 
 	var menu = $("#menu");
