@@ -95,20 +95,17 @@ p {
 	font-weight: bold;
 }
 
-.wrapper {
-	width: 85%;
-	margin: 0 auto
-}
-
 #menu {
 	margin-bottom: 6em;
+    background: #fff;
+    z-index: 200;
 }
 
 #menu ul {
 	display: inline-block;
 	position: relative;
 	height: 60px;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	margin-top: 6%;
 	top: 0;
 	left: 50%;
@@ -124,11 +121,23 @@ p {
 	padding-right: 20px;
 	padding-top: 20px;
 	padding-bottom: 21px;
+	height: 100%;
+	-moz-box-sizing: border-box;
+         box-sizing: border-box;
+    text-align: center;
 }
 
 #menu li a {
 	color: inherit;
 	text-decoration: none;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.isotope {
+	width: 85%;
+	margin: 0 auto;
+	z-index: 100;
 }
 
 .pages {
@@ -136,7 +145,7 @@ p {
 	float: left;
 	display: block;
 	margin-top: 3em;
-	padding: 8px;
+	padding: 8px 16px;
 	-moz-box-sizing: border-box;
          box-sizing: border-box;
 }
@@ -216,7 +225,7 @@ p {
 
 /* Twitter */
 .pages .une-phrase {
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 }
 
 .twitter-share-button {
@@ -224,6 +233,7 @@ p {
 	position: absolute;
 	bottom: 5px;
 	right: 5px;
+	font-size: .8em;
 }
 
 .twitter-share-button:hover {
@@ -233,6 +243,26 @@ p {
 @media (max-width: 992px) {
 	.pages {
 		width: 50%;
+	}
+
+	#menu {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+	#menu ul {
+		font-size: .9em;
+		width: 100%;
+		margin-top: 0;
+	}
+
+	#menu ul li {
+	    width: 25%;
+	}
+
+	.isotope {
+		margin-top: 100px;
 	}
 }
 
