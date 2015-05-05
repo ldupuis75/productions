@@ -31,12 +31,7 @@ $(function() {
 			$('.isotope').removeClass('twocols');
 		}
 
-		// $('.isotope .pages').each(function() {
-		// 	$(this).removeClass('large');
-		// 	if ($(this).children('p.' + className).text().length > 400) {
-		// 		$(this).addClass('large');
-		// 	}
-		// });
+		$('.fadedout').removeClass('fadedout');
 
 		// Reorder content
 		callIsotope(className);
@@ -74,18 +69,22 @@ $(function() {
 	// Check if there's a #
 	if (window.location.hash != null) {
 		if (window.location.hash.match('#page-[0-9]')) {
-			$('#' + window.location.hash.slice(1, window.location.hash.length)).addClass('highlighted');
+			$('.pages').each(function() {
+				if ($(this).attr('id') != window.location.hash.slice(1, window.location.hash.length)) {
+					$(this).addClass('fadedout');
+				}
+			});
 		}
 	}
 
 	var menu = $("#menu");
-	var basePos = menu.position().top;
+	var basePos = menu.position().top + parseInt(menu.css('margin-top'));
 	$(document).on('scroll', function(event) {
 		if (window.innerWidth <= 992) {
 			if (window.scrollY >= basePos) {
 				menu.css({
 					position : 'fixed',
-					top : 0
+					top : 30,
 				});
 			} else {
 				menu.css({
