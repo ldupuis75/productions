@@ -128,6 +128,7 @@ p {
 	padding: 8px 16px;
 	-moz-box-sizing: border-box;
          box-sizing: border-box;
+    padding-bottom: 20px;
 }
 
 .pages.large {
@@ -144,7 +145,7 @@ p {
 	font-family: "Trade Gothic Bold Cond";
 	padding: 10px 0;
 	font-size: 1.6em;
-	color: #B9CCB8;
+	color: #000;
 }
 
 .pages .savoir-plus a {
@@ -270,7 +271,7 @@ p {
 .twitter-share-button {
 	display: none;
 	position: absolute;
-	bottom: 5px;
+	bottom: 35px;
 	right: 5px;
 	font-size: .8em;
 }
@@ -326,5 +327,5 @@ em {
 }
 
 .fadedout {
-	opacity: .5;
+	opacity: .2;
 }

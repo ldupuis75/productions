@@ -69,11 +69,13 @@ $(function() {
 	// Check if there's a #
 	if (window.location.hash != null) {
 		if (window.location.hash.match('#page-[0-9]')) {
+			var id = window.location.hash.slice(1, window.location.hash.length);
 			$('.pages').each(function() {
-				if ($(this).attr('id') != window.location.hash.slice(1, window.location.hash.length)) {
+				if ($(this).attr('id') != id) {
 					$(this).addClass('fadedout');
 				}
 			});
+			$('body').scrollTop($("#" + id).position().top);
 		}
 	}
 
