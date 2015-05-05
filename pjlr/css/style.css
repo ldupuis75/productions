@@ -161,6 +161,10 @@ p {
          box-sizing: border-box;
 }
 
+.isotope.twocols .pages {
+	width: 50%;
+}
+
 .pages.highlighted {
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
 	border-radius: .3em;
@@ -296,7 +300,7 @@ p {
 }
 
 @media (max-width: 768px) {
-	.pages {
+	.pages, .isotope.twocols .pages {
 		width: 100%;
 	}
 

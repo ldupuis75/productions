@@ -27,6 +27,12 @@ $(function() {
 		$('.pages .avec-des-poissons').hide();
 		$('.pages .' + className).show();
 
+		if (['en-details'].indexOf(className) >= 0) {
+			$('.isotope').addClass('twocols');
+		} else {
+			$('.isotope').removeClass('twocols');
+		}
+
 		// Reorder content
 		callIsotope(className);
 	};
