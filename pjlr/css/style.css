@@ -212,6 +212,17 @@ p {
 	background: #EFC94C;
 }
 
+.wrapper-quel-probleme .pages span, .wrapper-quel-probleme #menu li, .wrapper-quel-probleme .twitter-share-button {
+	color: #334D5C;
+}
+.wrapper-quel-probleme #menu ul {	
+	border: 5px solid #334D5C;
+}
+.wrapper-quel-probleme #menu li.selected {
+	color: #fff;
+	background: #334D5C;
+}
+
 .wrapper-dans-la-vraie-vie .pages span, .wrapper-dans-la-vraie-vie #menu li, .wrapper-dans-la-vraie-vie .twitter-share-button {
 	color: #E27A3F;
 }
@@ -232,6 +243,17 @@ p {
 .wrapper-avec-des-poissons #menu li.selected {
 	color: #fff;
 	background: #DF4949;
+}
+
+.wrapper-savoir-plus .pages span, .wrapper-savoir-plus #menu li, .wrapper-savoir-plus .twitter-share-button {
+	color: #B9CCB8;
+}
+.wrapper-savoir-plus #menu ul {	
+	border: 5px solid #B9CCB8;
+}
+.wrapper-savoir-plus #menu li.selected {
+	color: #fff;
+	background: #B9CCB8;
 }
 
 /* Twitter */
@@ -281,4 +303,10 @@ p {
 	#menu ul {
 		font-size: .8em;
 	}
+}
+
+/* Utils */
+
+.hidden {
+	display: none;
 }

@@ -1,16 +1,19 @@
 $(function() {
-	var callIsotope = function() {
+	var callIsotope = function(className) {
 		$('.isotope').isotope({
 			itemSelector : '.pages',
 			masonry : {
 			  columnWidth : '.pages'
+			},
+			filter: function() {
+				return $(this).children('p.' + className).text().length > 0;
 			}
 		});
 	};
 
 	var activateSection = function(className) {
 		// Change colors
-		$('.wrapper').removeClass('wrapper-une-phrase wrapper-en-details wrapper-dans-la-vraie-vie wrapper-avec-des-poissons');
+		$('.wrapper').removeClass('wrapper-une-phrase wrapper-en-details wrapper-quel-probleme wrapper-dans-la-vraie-vie wrapper-avec-des-poissons wrapper-savoir-plus');
 		$('.wrapper').addClass('wrapper-' + className);
 
 		// Activate menu item
@@ -24,17 +27,8 @@ $(function() {
 		$('.pages .avec-des-poissons').hide();
 		$('.pages .' + className).show();
 
-		// Must hide empty elements
-		$('.pages .' + className).each(function() {
-			if ($(this).text().length <= 0) {
-				$(this).parent('.pages').hide();
-			} else {
-				$(this).parent('.pages').show();
-			}
-		});
-
 		// Reorder content
-		callIsotope();
+		callIsotope(className);
 	};
 
 	// Register menu actions
@@ -60,6 +54,8 @@ $(function() {
 		});
 		$(this).append(button);
 	});
+
+	$('body').append($('<div>').addClass('hidden'));
 
 	// Initialize
 	activateSection('une-phrase');
