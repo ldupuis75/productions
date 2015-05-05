@@ -6,7 +6,7 @@ header {
 	background-image: url(../cover.jpg);
 	background-size: 100%;
 	margin-top: 0;
-	padding-bottom: 40px;
+	padding-bottom: 5%;
 	padding-top: 20px;
 	text-shadow: -1px -1px 10px rgba(150, 150, 150, 1);
 }
@@ -68,10 +68,11 @@ p {
 }
 
 #menu {
-	margin: -30px auto 30px auto;
+	margin: -30px auto 3px auto;
     background: #fff;
     z-index: 200;
     width: 85%;
+    padding-bottom: 3%;
 }
 
 #menu ul {
@@ -144,8 +145,9 @@ p {
 .pages .savoir-plus h4 {
 	font-family: "Trade Gothic Bold Cond";
 	padding: 10px 0;
-	font-size: 1.6em;
+	font-size: 2.2em;
 	color: #000;
+	letter-spacing: -1px;
 }
 
 .pages .savoir-plus a {
@@ -256,7 +258,7 @@ p {
 
 /* Typo sizes */
 
-.wrapper-en-details .pages p, .wrapper-quel-probleme .pages p {
+.wrapper-en-details .pages p, .wrapper-quel-probleme .pages p, .wrapper-dans-la-vraie-vie .pages p {
 	font-size: 1.3em;
     letter-spacing: -0.5px;
     line-height: 2.1rem;
@@ -307,6 +309,10 @@ p {
 
 	#menu ul {
 		font-size: .8em;
+	}
+
+	.pages p {
+
 	}
 }
 
