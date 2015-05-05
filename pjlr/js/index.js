@@ -24,11 +24,18 @@ $(function() {
 		$('.pages p').hide();
 		$('.pages .' + className).show();
 
-		if (['en-details'].indexOf(className) >= 0) {
+		if (['en-details', 'quel-probleme'].indexOf(className) >= 0) {
 			$('.isotope').addClass('twocols');
 		} else {
 			$('.isotope').removeClass('twocols');
 		}
+
+		// $('.isotope .pages').each(function() {
+		// 	$(this).removeClass('large');
+		// 	if ($(this).children('p.' + className).text().length > 400) {
+		// 		$(this).addClass('large');
+		// 	}
+		// });
 
 		// Reorder content
 		callIsotope(className);

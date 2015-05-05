@@ -161,6 +161,10 @@ p {
          box-sizing: border-box;
 }
 
+.pages.large {
+	width: 66%;
+}
+
 .isotope.twocols .pages {
 	width: 50%;
 }
@@ -260,6 +264,15 @@ p {
 	background: #B9CCB8;
 }
 
+/* Typo sizes */
+
+.wrapper-en-details .pages p, .wrapper-quel-probleme .pages p {
+	font-size: 1.3em;
+    letter-spacing: -0.5px;
+    line-height: 2.1rem;
+}
+
+
 /* Twitter */
 .pages .une-phrase {
 	padding-bottom: 30px;
@@ -313,4 +326,8 @@ p {
 
 .hidden {
 	display: none;
+}
+
+em {
+	font-style: italic;
 }
