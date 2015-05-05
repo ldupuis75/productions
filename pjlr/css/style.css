@@ -165,6 +165,22 @@ p {
 	width: 66%;
 }
 
+.pages .savoir-plus img {
+	width: 100%;
+	height: auto;
+}
+
+.pages .savoir-plus h4 {
+	font-family: "Montserrat",sans-serif;
+	font-size: 2em;
+}
+
+.pages .savoir-plus p {
+	font-size: 1.3em;
+    letter-spacing: -0.5px;
+    line-height: 2.1rem;
+}
+
 .isotope.twocols .pages {
 	width: 50%;
 }

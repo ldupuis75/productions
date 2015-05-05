@@ -6,7 +6,7 @@ $(function() {
 			  columnWidth : '.pages'
 			},
 			filter: function() {
-				return $(this).children('p.' + className).text().length > 0;
+				return $(this).children('.' + className).text().length > 0;
 			}
 		});
 	};
@@ -21,7 +21,8 @@ $(function() {
 		$('#menu li.' + className).addClass('selected');
 
 		// Change what is displayed
-		$('.pages p').hide();
+		$('.pages > p').hide();
+		$('.pages .savoir-plus').hide();
 		$('.pages .' + className).show();
 
 		if (['en-details', 'quel-probleme'].indexOf(className) >= 0) {
@@ -76,4 +77,6 @@ $(function() {
 			$('#' + window.location.hash.slice(1, window.location.hash.length)).addClass('highlighted');
 		}
 	}
+
+	$.get('http://www.liberation.fr/societe/2015/04/15/imsi-catchers-des-valises-aux-grandes-oreilles_1242091')
 });
