@@ -184,6 +184,9 @@ p {
 	line-height: 2.5rem;
 }
 
+.pages p a {
+	color: #C42121;
+}
 
 /* Colors */
 .pagewrapper .pages span, .pagewrapper .pages strong, .pagewrapper #menu li, .pagewrapper .twitter-share-button {
