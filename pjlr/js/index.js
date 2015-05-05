@@ -78,5 +78,20 @@ $(function() {
 		}
 	}
 
-	$.get('http://www.liberation.fr/societe/2015/04/15/imsi-catchers-des-valises-aux-grandes-oreilles_1242091')
+	var menu = $("#menu");
+	var basePos = menu.position().top;
+	$(document).on('scroll', function(event) {
+		if (window.innerWidth <= 992) {
+			if (window.scrollY >= basePos) {
+				menu.css({
+					position : 'fixed',
+					top : 0
+				});
+			} else {
+				menu.css({
+					position : 'relative'
+				});
+			}
+		}
+	});
 });
