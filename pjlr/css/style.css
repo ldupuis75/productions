@@ -23,11 +23,12 @@ h1 {
 }
 
 h2 {
-	width: 70%;
-	font-family: 'Georgia', sans-serif;
-	text-align: center;
-	margin: 20px auto;
-	color: #fff;
+    width: 40%;
+    font-family: "Georgia",sans-serif;
+    text-align: center;
+    margin: 20px auto;
+    color: #FFF;
+    font-size: 1.3em;
 }
 
 .pages h3 {
