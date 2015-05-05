@@ -168,17 +168,23 @@ p {
 .pages .savoir-plus img {
 	width: 100%;
 	height: auto;
+	margin-top: 10px;
 }
 
 .pages .savoir-plus h4 {
-	font-family: "Montserrat",sans-serif;
-	font-size: 2em;
+	padding: 10px 0;
+	font-family: "Georgia", sans-serif;
+	font-size: 1.6em;
+}
+
+.pages .savoir-plus h4 a {
+	color: #B9CCB8;
 }
 
 .pages .savoir-plus p {
 	font-size: 1.3em;
     letter-spacing: -0.5px;
-    line-height: 2.1rem;
+    line-height: 1.9rem;
 }
 
 .isotope.twocols .pages {
