@@ -8,6 +8,7 @@
 	margin-top: 0;
 	padding-bottom: 5%;
 	padding-top: 20px;
+	text-shadow: -1px -1px 10px rgba(150, 150, 150, 1);
 }
 
 h1 {
@@ -24,13 +25,12 @@ h1 {
 }
 
 h2 {
-	width: 70%;
-	font-family: 'Georgia', sans-serif;
-	text-align: center;
-	margin: 20px auto;
-	color: #fff;
-/*	text-shadow: -1px -1px 10px rgba(0, 0, 0, 1);
-*/	text-shadow: -1px -1px 10px rgba(150, 150, 150, 1);
+    width: 40%;
+    font-family: "Georgia",sans-serif;
+    text-align: center;
+    margin: 20px auto;
+    color: #FFF;
+    font-size: 1.3em;
 }
 
 .pages h3 {

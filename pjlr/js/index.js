@@ -60,8 +60,8 @@ $(function() {
 	$('.pages .une-phrase').each(function() {
 		var button = $('<a href="#" class="twitter-share-button"><i class="fa fa-twitter"></i></a>');
 		var text = encodeURIComponent($(this).siblings('h3').text() + " : j'ai tout compris à la Loi Renseignement grâce à @libe. Et vous ? #pjlr");
-		var url = window.location.href + '#'
-		var link = "https://twitter.com/intent/tweet?original_referer=" + "" + "&text=" + text + "&url=";
+		var url = encodeURIComponent(window.location.href + '#' + $(this).parents('.pages').attr('id'));
+		var link = "https://twitter.com/intent/tweet?original_referer=" + "" + "&text=" + text + "&url=" + url;
 		button.on('click', function(event) {
 			event.preventDefault();
 			window.open(link);
