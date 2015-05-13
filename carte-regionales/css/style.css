@@ -125,9 +125,11 @@ section.content div.candidates ul {
     margin-top: 20px;
 }
 
-section.content footer {
+section.content .footer {
     font-size: small;
-    float:right;
+    position:absolute;
+    bottom:0;
+    left:0;
 }
 
 @media (max-width: 768px) {
