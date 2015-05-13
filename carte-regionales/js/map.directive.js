@@ -27,9 +27,11 @@ angular.module('app').directive('map', ['$rootScope', function($rootScope) {
             };
 
             var onClick = function(event) {
-                regions.find('path, polygon').css('fill', baseColor);
                 var id = $(this).attr('id');
-                 if (selected == null || id !== selected.attr('id')) {
+                if (['', '14', '17'].indexOf(String(id)) >= 0) { return; }
+
+                regions.find('path, polygon').css('fill', baseColor);
+                if (selected == null || id !== selected.attr('id')) {
                     if (event != null) {
                         $rootScope.$broadcast('map:clicked', id);
                     }
