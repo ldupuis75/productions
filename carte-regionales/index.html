@@ -33,6 +33,7 @@
         <section class="content">
             <map class="map"></map>
             <div class="side" scroll>
+                <p class="enjeux">Les accords ne sont pas encore finalisés entre les différents partis, certains candidats ne sont pas nommés. Retrouvez ci-dessous les têtes de liste et les têtes de file annoncés.</p>
                 <div ng-repeat="region in regions" id="r{{ region.id }}">
                     <h2>{{ region['Région'] }}</h2>
                     <div class="candidates">
@@ -49,7 +50,7 @@
                             <p>{{ region['candidat_3'] }}</p>
                         </div>
                         <div class="candidates__other">
-                            Autres candidats :<span ng-repeat="candidat in region['autres candidats']"> {{ candidat }}<span ng-if="!$last">,</span></span>.
+                            Autres têtes de file :<span ng-repeat="candidat in region['autres candidats']"> {{ candidat }}<span ng-if="!$last">,</span></span>...
                         </div>
                         <div class="enjeux">
                             <p>{{ region['enjeux'] }}</p>
@@ -57,6 +58,7 @@
                     </div>
                 </div>
             </div>
+            <div class="footer">crédits images : AFP et Dominique Fougere</div>
         </section>
 
     <!-- Chartbeat -->

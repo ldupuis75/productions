@@ -89,6 +89,7 @@ section.content div.candidate {
     text-align: center;
     font-family: "Proxima Nova Regular";
     font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 section.content div.candidate.twocols {
@@ -124,6 +125,11 @@ section.content div.candidates ul {
     margin-top: 20px;
 }
 
+section.content footer {
+    font-size: small;
+    float:right;
+}
+
 @media (max-width: 768px) {
     section.content .map, section.content div.side {
         width: 100%;
@@ -139,7 +145,7 @@ section.content div.candidates ul {
     }
 
     section.content .map {
-        height: auto;
+        display:none;
     }
 
     section.content .map {
