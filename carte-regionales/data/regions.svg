@@ -859,7 +859,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 413.1338 339.8311)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CENTRE - </tspan><tspan x="-17.793" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">Val de loire</tspan></text>
+					<text transform="matrix(1 0 0 1 413.1338 339.8311)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CENTRE - </tspan><tspan x="-17.793" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">VAL-DE-LOIRE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -888,7 +888,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 603.25 211.9971)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CHAMPAGNE-ARDENNE -</tspan><tspan x="20.861" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">LORRAINE / ALSACE</tspan></text>
+					<text transform="matrix(1 0 0 1 603.25 211.9971)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CHAMPAGNE-ARDENNE -</tspan><tspan x="20.861" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">LORRAINE - ALSACE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -931,7 +931,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 259.1855 188.4805)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">HAUTE-NORMANDIE -</tspan><tspan x="6.939" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">BASSE-NORMANDIE</tspan></text>
+					<text transform="matrix(1 0 0 1 259.1855 188.4805)"><tspan x="33.939" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">NORMANDIE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -967,7 +967,7 @@
 		<text transform="matrix(1 0 0 1 8.689 475.7148)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">GUADELOUPE</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.3467 574.6582)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">REUNION</text>
+		<text transform="matrix(1 0 0 1 26.3467 574.6582)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">RÉUNION</text>
 	</g>
 	<g>
 		<text transform="matrix(1 0 0 1 30.1538 799.2812)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">GUYANE</text>

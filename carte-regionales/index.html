@@ -6,7 +6,7 @@
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
-        <title></title>
+        <title>Libération.fr – Régionales de décembre 2015 – Tous les candidats</title>
         <meta name="description" content="Tout savoir sur les dernières actualités politiques, monde, société, sports, écologie avec le journal en ligne Libération.">
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
         <meta name="keywords" content="actualités, news">
@@ -37,18 +37,22 @@
                     <h2>{{ region['Région'] }}</h2>
                     <div class="candidates">
                         <div class="candidate" ng-class="{'twocols':region['candidat_3']=='','threecols':region['candidat_3']!=''}">
+                            <img ng-src="{{ region['c1_photo'] }}"/>
                             <p>{{ region['candidat_1'] }}</p>
                         </div>
                         <div class="candidate" ng-class="{'twocols':region['candidat_3']=='','threecols':region['candidat_3']!=''}">
+                            <img ng-src="{{ region['c2_photo'] }}"/>
                             <p>{{ region['candidat_2'] }}</p>
                         </div>
                         <div class="candidate" ng-class="{'twocols':region['candidat_3']=='','threecols':region['candidat_3']!=''}">
+                            <img ng-src="{{ region['c3_photo'] }}"/>
                             <p>{{ region['candidat_3'] }}</p>
                         </div>
                         <div class="candidates__other">
-                            <ul>
-                                <li ng-repeat="candidat in region['autres candidats']">{{ candidat }}</li>
-                            </ul>
+                            Autres candidats :<span ng-repeat="candidat in region['autres candidats']"> {{ candidat }}<span ng-if="!$last">,</span></span>.
+                        </div>
+                        <div class="enjeux">
+                            <p>{{ region['enjeux'] }}</p>
                         </div>
                     </div>
                 </div>

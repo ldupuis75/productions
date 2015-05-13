@@ -11,6 +11,17 @@ section.content {
     float: left;
     width: 100%;
     height: 100%;
+    font-family: Georgia, serif;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+section.content .map {
+    width: 60%;
+    height: 100%;
+    float: left;
 
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -18,8 +29,8 @@ section.content {
             box-sizing: border-box;
 }
 
-section.content .map, section.content div.side {
-    width: 50%;
+section.content div.side {
+    width: 40%;
     height: 100%;
     float: left;
 
@@ -76,6 +87,8 @@ section.content div.candidate {
          -o-box-sizing: border-box;
             box-sizing: border-box;
     text-align: center;
+    font-family: "Proxima Nova Regular";
+    font-size: 1.2em;
 }
 
 section.content div.candidate.twocols {
@@ -86,9 +99,24 @@ section.content div.candidate.threecols {
     width: 33%;
 }
 
+section.content div.candidate img {
+    width: 80%;
+}
+
+
 section.content div.candidates__other {
-    float: left;
     clear: both;
+    width: 80%;
+    margin: 10px auto;
+    color: #858585;
+    font-family: "Proxima Nova Regular";
+    font-size: .9em;
+}
+
+section.content div.enjeux {
+    clear: both;
+    width: 80%;
+    margin: 10px auto;
 }
 
 section.content div.candidates ul {
@@ -108,7 +136,6 @@ section.content div.candidates ul {
     }
 
     section.content div.side > div {
-        height: 100%;
     }
 
     section.content .map {

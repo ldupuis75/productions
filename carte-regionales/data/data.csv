@@ -1,0 +1,18 @@
+id,Région,candidat_1,c1_photo,candidat_2,c2_photo,candidat_3,c3_photo,autres candidats,enjeux
+1,Alsace-Champagne-Ardenne-Lorraine,Philippe Richert (UMP sortant),./img/reg-02.png,Florian Philippot (FN),./img/reg-01.png,,,Jean-Pierre Masseret (PS sortant)|Sandrine Bélier (EELV)|Laurent Hénart (UDI),"L'ancienne région Alsace, composante de cette région ACAL est la seule région à droite jusqu'en 2015. Le président sortant d'Alsance, Philippe Richert, pour l'UMP affrontera Florian Philippot pour le FN et le président sortant de Lorraine Jean-Pierre Masseret pour le PS."
+2,Aquitaine-Limousin-Poitou-Charentes,Alain Rousset (PS),./img/reg-03.png,Virginie Calmels (UMP),./img/reg-04.png,,,Françoise Coutant (EELV)|Jean-Marc Gabouty (UDI),"La région ALPC est une des chances de la gauche. Alain Rousseau, le président sortant d'Aquitaine y affrontera Virginie Calmels, adjointe d'Alain Juppé à Bordeaux qui mènera une liste UMP-UDI."
+3,Auvergne-Rhône-Alpes,Laurent Wauquiez (UMP),./img/reg-05.png,Jean-Jacques Queyranne (PS sortant),./img/reg-06.png,,,Jean-Charles Kohlhaas (EELV)|Christophe Boudot (FN)|Franck Reynier (UDI),"Jean-Jacques Queyranne rempilera-t-il pour un troisième mandat ? Face à lui, le très médiatique maire du Puy-en-Velay, Laurent Wauquiez espère gagner la région ARA."
+4,Bourgogne-Franche-Comté,François Sauvadet (UDI),./img/reg-07.png,? (PS),./img/reg-08.png,Sophie Montel (FN),./img/reg-09.png,Cécile Prudhomme (EELV)|Alain Joyandet (UMP),"Dans la région BFC, les candidatures ne sont pas encore décidées à droite, entre l'UDI François Sauvadet et l'UMP Alain Joyandet. A gauche, François Patriat et Marie-Guite Dufay souhaitent tout les deux emmener les socialistes. Ils affronteront Sophie Montel du FN, qui avait perdu au second tour dans la législative partielle du 8 février dans le Doubs."
+5,Bretagne,? (PS),,Marc Le Fur (UMP),,,,René Louail (EELV)|Gilles Pennelle (FN)|Michel Canevet (UDI),"En Bretagne, le candidat socialiste n'est pas encore nommé. Il affrontera Marc Le Fur à l'UMP."
+6,Centre-Val de Loire,Philippe Vigier (UDI),,,,,,Charles Fournier (EELV)|Guillaume Peltier (UMP),
+7,Corse,Paul Giacobbi (PRG),,? (UMP),,,,Jean Toma (UDI),
+8,Ile-de-France,Claude Bartolone (PS),,Valérie Pécresse (UMP),,,,Emmanuelle Cosse (EELV)|Wallerand de Saint Just (FN)|Chantal Jouanno (UDI)|Marielle de Sarnez (Modem)|Nicolas Dupont-Aignan (DLF),"En Ile-de-France, la candidature éclair de Claude Bartolone permettra-t-elle à la gauche de conserver la région ? Si "
+9,Languedoc-Roussillon-Midi-Pyrénées,Carole Delga (PS),,Dominique Reynié (UMP),,,,Gérard Onesta (EELV)|Louis Aliot (FN)|Sylvia Pinel (PRG),
+10,Nord-Pas-de-Calais-Picardie,? (FN),,Xavier Bertrand (UMP),,Pierre de Saintignon (PS),,Sandrine Rousseau (EELV),"Le ou la candidate du Front National dans le NPCP ne devrait être connu qu'à la fin du mois de mai. C'est une des deux régions où le FN a le plus de chance de l'emporter. Marine Le Pen, présidente du parti, pourrait mener la liste face à l'ancien ministre Xavier Bertrand et au premier adjoint de Martine Aubry à Lille, Pierre de Saintignon."
+11,Normandie,Hervé Morin (UDI),,,,,,Yannick Soubien (EELV)|Nicolas Bay (FN),
+12,Pays de la Loire,Bruno Retailleau (UMP),,Christophe Clergeau (PS),,,,Sophie Bringuy (EELV)|Pascal Gannat (FN)|Yannick Favennec (UDI),
+13,Provence-Alpes-Côte d'Azur,Marion Maréchal Le Pen (FN),,Christian Estrosi (UMP),,,,Christophe Castaner (PS)|Sophie Camard (EELV)|Sophie Joissains (UDI),
+14,Guyane,,,,,,,,
+15,Guadeloupe,Victorin Lurel (PS),,,,,,,
+16,Martinique,,,Yan Monplaisir (UMP),,,,Philippe Petit (UDI),
+17,La Réunion,,,,,,,Jean-Alain Cadet (EELV),
