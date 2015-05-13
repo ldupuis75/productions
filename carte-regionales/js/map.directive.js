@@ -58,7 +58,10 @@ angular.module('app').directive('map', ['$rootScope', function($rootScope) {
                         cursor : 'pointer'
                    });
 
-                svgDocument.find('#noms').css('pointer-events', 'none');
+                //svgDocument.find('#noms').css('pointer-events', 'none');
+                svgDocument.find('#noms *').attr({
+                    'font-family' : 'Proxima Nova Regular'
+                });
             });
         }
     }

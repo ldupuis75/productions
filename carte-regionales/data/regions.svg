@@ -3,6 +3,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="900px"
 	 height="900px" viewBox="0 0 900 900" enable-background="new 0 0 900 900" xml:space="preserve">
+	 <style>
+		@font-face{font-family:"Proxima Nova Regular";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/27522D_B_0.eot?6f3b7a3a38b9') format("eot");src:url('http://s1.libe.com/font/license/27522D_B_0.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/27522D_B_0.woff?973092db2463') format("woff"),url('http://s1.libe.com/font/license/27522D_B_0.ttf?326b4ed42028') format("truetype"),url('http://s1.libe.com/font/license/27522D_B_0.svg#Proxima Nova Regular') format("svg")}@font-face{font-family:"Proxima Nova Regular Bold";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/27522D_C_0.eot?7651b0835130') format("eot");src:url('http://s1.libe.com/font/license/27522D_C_0.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/27522D_C_0.woff?1d97b03ffbee') format("woff"),url('http://s1.libe.com/font/license/27522D_C_0.ttf?c4b6119d8273') format("truetype"),url('http://s1.libe.com/font/license/27522D_C_0.svg#Proxima Nova Regular Bold') format("svg")}@font-face{font-family:"Trade Gothic Bold Cond";font-weight:normal;font-style:normal;src:url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.eot?1669fae0818a') format("eot");src:url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.eot?#iefix') format("embedded-opentype"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.woff?7f6be2b8eca9') format("woff"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.ttf?5dda5c1e2946') format("truetype"),url('http://s1.libe.com/font/license/tradegothicltstd-bdcn20.svg#Trade Gothic Bold Cond') format("svg")}
+	 </style>
 <g id="Fond">
 	<rect x="0" y="0" fill="#FFFFFF" width="900" height="900"/>
 </g>
@@ -842,7 +845,7 @@
 	<g>
 		<g>
 			<g>
-				<text transform="matrix(1 0 0 1 121.5215 274.3794)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">BRETAGNE</text>
+				<text transform="matrix(1 0 0 1 121.5215 274.3794)" fill="#231F20" font-size="18">BRETAGNE</text>
 			</g>
 		</g>
 	</g>
@@ -850,7 +853,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 591.2119 364.8257)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">BOURGOGNE -</tspan><tspan x="-12.375" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">FRANCHE-COMTÉ</tspan></text>
+					<text transform="matrix(1 0 0 1 591.2119 364.8257)"><tspan x="0" y="0" fill="#231F20" font-size="18">BOURGOGNE -</tspan><tspan x="-12.375" y="21" fill="#231F20" font-size="18">FRANCHE-COMTÉ</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -859,7 +862,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 413.1338 339.8311)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CENTRE - </tspan><tspan x="-17.793" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">VAL-DE-LOIRE</tspan></text>
+					<text transform="matrix(1 0 0 1 413.1338 339.8311)"><tspan x="0" y="0" fill="#231F20" font-size="18">CENTRE - </tspan><tspan x="-17.793" y="21" fill="#231F20" font-size="18">VAL-DE-LOIRE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -869,7 +872,7 @@
 			<g>
 				<g>
 					<g>
-						<text transform="matrix(1 0 0 1 597.6191 525.2031)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">AUVERGNE -</tspan><tspan x="-9.126" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">RHÔNE-ALPES </tspan></text>
+						<text transform="matrix(1 0 0 1 597.6191 525.2031)"><tspan x="0" y="0" fill="#231F20" font-size="18">AUVERGNE -</tspan><tspan x="-9.126" y="21" fill="#231F20" font-size="18">RHÔNE-ALPES </tspan></text>
 					</g>
 				</g>
 			</g>
@@ -879,7 +882,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 495.8867 87.71)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">NORD-</tspan><tspan x="-38.276" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">PAS-DE-CALAIS -</tspan><tspan x="-10.179" y="42" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">PICARDIE</tspan></text>
+					<text transform="matrix(1 0 0 1 495.8867 87.71)"><tspan x="0" y="0" fill="#231F20" font-size="18">NORD-</tspan><tspan x="-38.276" y="21" fill="#231F20" font-size="18">PAS-DE-CALAIS -</tspan><tspan x="-10.179" y="42" fill="#231F20" font-size="18">PICARDIE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -888,7 +891,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 603.25 211.9971)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CHAMPAGNE-ARDENNE -</tspan><tspan x="20.861" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">LORRAINE - ALSACE</tspan></text>
+					<text transform="matrix(1 0 0 1 603.25 211.9971)"><tspan x="0" y="0" fill="#231F20" font-size="18">CHAMPAGNE-ARDENNE -</tspan><tspan x="20.861" y="21" fill="#231F20" font-size="18">LORRAINE - ALSACE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -897,7 +900,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 292.8027 528.1904)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">POITOU-CHARENTES -</tspan><tspan x="40.851" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">LIMOUSIN - </tspan><tspan x="39.428" y="42" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">AQUITAINE </tspan></text>
+					<text transform="matrix(1 0 0 1 292.8027 528.1904)"><tspan x="0" y="0" fill="#231F20" font-size="18">POITOU-CHARENTES -</tspan><tspan x="40.851" y="21" fill="#231F20" font-size="18">LIMOUSIN - </tspan><tspan x="39.428" y="42" fill="#231F20" font-size="18">AQUITAINE </tspan></text>
 				</g>
 			</g>
 		</g>
@@ -906,7 +909,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 411.4814 709.1211)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">MIDI-PYRÉNÉES -</tspan><tspan x="-38.079" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">LANGUEDOC-ROUSSILLON</tspan></text>
+					<text transform="matrix(1 0 0 1 411.4814 709.1211)"><tspan x="0" y="0" fill="#231F20" font-size="18">MIDI-PYRÉNÉES -</tspan><tspan x="-38.079" y="21" fill="#231F20" font-size="18">LANGUEDOC-ROUSSILLON</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -914,7 +917,7 @@
 	<g>
 		<g>
 			<g>
-				<text transform="matrix(1 0 0 1 679.0127 695.7461)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">PROVENCE-ALPES-</tspan><tspan x="19.998" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CÔTE D&apos;AZUR</tspan></text>
+				<text transform="matrix(1 0 0 1 679.0127 695.7461)"><tspan x="0" y="0" fill="#231F20" font-size="18">PROVENCE-ALPES-</tspan><tspan x="19.998" y="21" fill="#231F20" font-size="18">CÔTE D&apos;AZUR</tspan></text>
 			</g>
 		</g>
 	</g>
@@ -922,7 +925,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 266.1436 331.6899)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">PAYS DE</tspan><tspan x="-1.683" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">LA LOIRE</tspan></text>
+					<text transform="matrix(1 0 0 1 266.1436 331.6899)"><tspan x="0" y="0" fill="#231F20" font-size="18">PAYS DE</tspan><tspan x="-1.683" y="21" fill="#231F20" font-size="18">LA LOIRE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -931,7 +934,7 @@
 		<g>
 			<g>
 				<g>
-					<text transform="matrix(1 0 0 1 259.1855 188.4805)"><tspan x="33.939" y="21" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">NORMANDIE</tspan></text>
+					<text transform="matrix(1 0 0 1 259.1855 188.4805)"><tspan x="33.939" y="21" fill="#231F20" font-size="18">NORMANDIE</tspan></text>
 				</g>
 			</g>
 		</g>
@@ -941,7 +944,7 @@
 			<g>
 				<g>
 					<g>
-						<text transform="matrix(1 0 0 1 472.458 226.0513)"><tspan x="0" y="0" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">ÎLE-DE- </tspan><tspan x="-3.537" y="20" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">FRANCE</tspan></text>
+						<text transform="matrix(1 0 0 1 472.458 226.0513)"><tspan x="0" y="0" fill="#231F20" font-size="18">ÎLE-DE- </tspan><tspan x="-3.537" y="20" fill="#231F20" font-size="18">FRANCE</tspan></text>
 					</g>
 				</g>
 			</g>
@@ -953,7 +956,7 @@
 				<g>
 					<g>
 						<g>
-							<text transform="matrix(1 0 0 1 827.9707 786.2363)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">CORSE</text>
+							<text transform="matrix(1 0 0 1 827.9707 786.2363)" fill="#231F20" font-size="18">CORSE</text>
 						</g>
 					</g>
 				</g>
@@ -961,19 +964,19 @@
 		</g>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 25.4194 693.2871)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">MAYOTTE</text>
+		<text transform="matrix(1 0 0 1 25.4194 693.2871)" fill="#231F20" font-size="18">MAYOTTE</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 8.689 475.7148)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">GUADELOUPE</text>
+		<text transform="matrix(1 0 0 1 8.689 475.7148)" fill="#231F20" font-size="18">GUADELOUPE</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.3467 574.6582)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">RÉUNION</text>
+		<text transform="matrix(1 0 0 1 26.3467 574.6582)" fill="#231F20" font-size="18">RÉUNION</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 30.1538 799.2812)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">GUYANE</text>
+		<text transform="matrix(1 0 0 1 30.1538 799.2812)" fill="#231F20" font-size="18">GUYANE</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 12.1719 895.3555)" fill="#231F20" font-family="'MyriadPro-Semibold'" font-size="18">MARTINIQUE</text>
+		<text transform="matrix(1 0 0 1 12.1719 895.3555)" fill="#231F20" font-size="18">MARTINIQUE</text>
 	</g>
 </g>
 <g id="Légende">
