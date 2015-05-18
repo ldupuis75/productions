@@ -8,9 +8,9 @@ html, body {
 
 section.content {
     padding-top: 50px;
-    float: left;
-    width: 100%;
+    width: 75%;
     height: 100%;
+    margin: 0 auto;
     font-family: Georgia, serif;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -19,7 +19,7 @@ section.content {
 }
 
 div.histogram {
-    width: 500px;
+    width: 33%;
     height: 400px;
     float: left;
 }
@@ -40,9 +40,9 @@ svg .axis path, svg .axis line {
 }
 
 svg rect {
-    fill: steelblue;
+    fill: #C42121;
 }
 
 svg rect.hover {
-    fill: cyan;
+    fill: #911111;
 }
