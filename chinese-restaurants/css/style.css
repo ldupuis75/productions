@@ -17,3 +17,32 @@ section.content {
          -o-box-sizing: border-box;
             box-sizing: border-box;
 }
+
+div.histogram {
+    width: 500px;
+    height: 400px;
+    float: left;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+svg .axis text {
+    font: 10px sans-serif;
+}
+
+svg .axis path, svg .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+svg rect {
+    fill: steelblue;
+}
+
+svg rect.hover {
+    fill: cyan;
+}
