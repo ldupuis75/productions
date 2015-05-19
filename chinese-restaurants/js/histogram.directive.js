@@ -8,6 +8,12 @@ angular.module('app').directive('histogram', ['$rootScope', '$timeout', function
             title : '@'
         },
         link : function($scope, $element, attrs) {
+            var tip = d3.tip().html(function(d) {
+                return d3.round(d.y, 2) + '%';
+            }).attr({
+                'id' : 'tip-' + attrs.id,
+                'class' : 'd3-tip'
+            });
 
             var refresh = function() {
                 d3.select($element[0]).selectAll('svg').remove();
@@ -55,13 +61,6 @@ angular.module('app').directive('histogram', ['$rootScope', '$timeout', function
                     $rootScope.$broadcast('histogram:hover', d.x);
                 }).on('mouseleave', function() {
                     $rootScope.$broadcast('histogram:nohover');
-                });
-
-                var tip = d3.tip().html(function(d) {
-                    return d3.round(d.y, 2) + '%';
-                }).attr({
-                    'id' : 'tip-' + attrs.id,
-                    'class' : 'd3-tip'
                 });
 
                 d3.select($element[0]).select('svg').call(tip);
