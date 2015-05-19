@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app').directive('histogram', ['$rootScope', function($rootScope) {
+angular.module('app').directive('histogram', ['$rootScope', '$timeout', function($rootScope, $timeout) {
     return {
         restrict : 'A',
         scope : {
@@ -108,6 +108,16 @@ angular.module('app').directive('histogram', ['$rootScope', function($rootScope)
                     refresh();
                 }
             });
+
+            angular.element(window).on('resize', (function() {
+                var timeout; // We're doing some sort of debounce to call this
+                return function() { // handler only when the resize is finished.
+                    $timeout.cancel(timeout);
+                    timeout = $timeout(function() {
+                        refresh();
+                    }, 100);
+                };
+            })());
         }
     };
 }]);
