@@ -5,6 +5,7 @@ angular.module('app').directive('histogram', ['$rootScope', function($rootScope)
         restrict : 'A',
         scope : {
             data : '=',
+            title : '@'
         },
         link : function($scope, $element, attrs) {
 
@@ -57,7 +58,7 @@ angular.module('app').directive('histogram', ['$rootScope', function($rootScope)
                 });
 
                 var tip = d3.tip().html(function(d) {
-                    return d3.round(d.y, 3);
+                    return d3.round(d.y, 2) + '%';
                 }).attr({
                     'id' : 'tip-' + attrs.id,
                     'class' : 'd3-tip'
@@ -94,6 +95,12 @@ angular.module('app').directive('histogram', ['$rootScope', function($rootScope)
                 });
 
                 svg.append('g').attr('class', 'x axis').attr('transform', 'translate(0, ' + height + ')').call(xAxis);
+
+                svg.append('g').attr('class', 'texts')
+                   .append('text').text($scope.title)
+                                  .attr('text-anchor', 'middle')
+                                  .attr('x', width / 2)
+                                  .attr('transform', 'translate(0, -' + (margin.top / 3) + ')');
             };
 
             $scope.$watch('data', function() {
