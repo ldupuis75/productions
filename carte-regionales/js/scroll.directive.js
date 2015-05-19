@@ -1,8 +1,10 @@
+'use strict';
+
 angular.module('app').directive('scroll', ['$rootScope', function($rootScope) {
     return {
         restrict : 'A',
         scope : { },
-        link : function($scope, element, attrs) {
+        link : function($scope, element) {
             $rootScope.$on('scroll:to', function(event, id) {
                 var top = angular.element('#' + id)[0].offsetTop - element[0].offsetTop;
 
@@ -11,7 +13,7 @@ angular.module('app').directive('scroll', ['$rootScope', function($rootScope) {
                 });
             });
 
-            $(element).on('wheel', function(event) {
+            $(element).on('wheel', function() {
                 var top = angular.element(element).scrollTop() + element[0].offsetTop;
                 var all = $(element).children('*');
                 for (var i = 0; i < all.length; ++i) {
