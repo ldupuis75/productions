@@ -70,12 +70,13 @@ angular.module('app').directive('histogram', ['$rootScope', '$timeout', function
                     svg.select('.bars').selectAll('.bar').classed('hover', function(d) {
                         if (d.x === index) {
                             tip.show(d);
-                            var _x = $element[0].getBoundingClientRect().left + margin.left;
+                            var bodyRect = document.body.getBoundingClientRect();
+                            var _x = ($element[0].getBoundingClientRect().left - bodyRect.left) + margin.left;
                             _x += x(d.x);
                             _x -= d3.select('#tip-' + attrs.id)[0][0].getBoundingClientRect().width / 2;
                             _x += x.rangeBand() / 2;
 
-                            var _y = $element[0].getBoundingClientRect().top + margin.top;
+                            var _y = ($element[0].getBoundingClientRect().top - bodyRect.top) + margin.top;
                             _y += y(d.y);
                             _y -= d3.select('#tip-' + attrs.id)[0][0].getBoundingClientRect().height;
 
