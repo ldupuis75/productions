@@ -18,9 +18,58 @@ section.content {
             box-sizing: border-box;
 }
 
+div.controls {
+    position: relative;
+    width: 100%;
+}
+
+div.controls-wrapper {
+    padding: 30px 0;
+    width: 75%;
+    margin: 0 auto;
+    position: relative;
+}
+
+div.controls i {
+    font-size: 3em;
+    display: inline-block;
+    position: absolute;
+    top: 50px;
+}
+
+div.controls i {
+    color: #000;
+}
+
+div.controls i.disabled {
+    color: #ccc;
+}
+
+div.controls i.fa-angle-right {
+    right: 10px;
+}
+
+div.controls .step {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+div.controls h2 {
+    font-family: "Trade Gothic Bold Cond";
+    font-size: 2em;
+    letter-spacing: -2px;
+    text-align: center;
+}
+
+div.controls p {
+    margin: 15px 30px;
+}
+
 div.timeline {
     width: 100%;
 }
+
+/* SVG */
 
 svg {
     width: 100%;
@@ -52,9 +101,6 @@ svg .bar line {
     stroke-width: 2px;
 }
 
-svg .bar line.end {
-    stroke-width: 4px;
-}
 
 svg .bar line.homme {
     stroke: #084259;
@@ -62,6 +108,14 @@ svg .bar line.homme {
 
 svg .bar line.femme {
     stroke: #A69972;
+}
+
+svg .bar circle.end.homme {
+    fill: #084259;
+}
+
+svg .bar circle.end.femme {
+    fill: #A69972;
 }
 
 svg .bar text {

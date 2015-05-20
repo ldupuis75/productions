@@ -16,6 +16,18 @@ app.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
         category : ''
     };
 
+    $scope.steps = [{
+        show : [76],
+        title : 'Lorem ipsum 1'
+    }, {
+        show : [55, 67, 12, 1],
+        title : 'Lorem ipsum 2'
+    }, {
+        show : [],
+        title : 'Lorem ipsum 3'
+    }];
+    $scope.currentStep = 0;
+
     $http.get('data/data.csv').then(function(response) {
         var csvArray = CSVToArray(response.data);
         var csvHeader = _.first(csvArray.splice(0, 1));
@@ -38,19 +50,50 @@ app.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
             }
         }
         $scope.data = _.clone(allData);
+        $scope.filter($scope.steps[$scope.currentStep].show);
     });
 
-    $scope.filter = function() {
-        var filtered = _.clone(allData);
+    $scope.filter = function(ids) {
+        if (ids == null || ids.length <= 0) {
+            $scope.data = _.map(allData, function(datum) {
+                datum.filteredOut = false;
 
-        if ($scope.activeFilters.gender.length > 0) {
-            filtered = _.filter(filtered, { gender : $scope.activeFilters.gender });
+                for (var i in $scope.activeFilters) {
+                    if ($scope.activeFilters.hasOwnProperty(i) &&
+                        $scope.activeFilters[i].length > 0) {
+                        datum.filteredOut |= datum[i] !== $scope.activeFilters[i];
+                    }
+                }
+
+                return datum;
+            });
+        } else {
+            $scope.data = _.map(allData, function(datum) {
+                datum.filteredOut = ids.indexOf(datum.id) < 0;
+                return datum;
+            });
         }
+    };
 
-        if ($scope.activeFilters.category.length > 0) {
-            filtered = _.filter(filtered, { category : $scope.activeFilters.category });
+    $scope.isFirstStep = function() {
+        return $scope.currentStep === 0;
+    };
+
+    $scope.isLastStep = function() {
+        return $scope.currentStep === $scope.steps.length - 1;
+    };
+
+    $scope.prevStep = function() {
+        if (!$scope.isFirstStep()) {
+            --$scope.currentStep;
+            $scope.filter($scope.steps[$scope.currentStep].show);
         }
+    };
 
-        $scope.data = filtered;
+    $scope.nextStep = function() {
+        if (!$scope.isLastStep()) {
+            ++$scope.currentStep;
+            $scope.filter($scope.steps[$scope.currentStep].show);
+        }
     };
 }]);
