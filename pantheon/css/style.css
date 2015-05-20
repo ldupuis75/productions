@@ -70,6 +70,21 @@ section.cover .step {
     display: inline-block;
 }
 
+section.cover .step--bubbles {
+    text-align: center;
+    list-style-type: none;
+}
+
+section.cover .step--bubbles li {
+    color: #fff;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+section.cover .step--bubbles i:last-of-type {
+    margin-right: 0;
+}
+
 section.filters {
     background: #dedede;
 }

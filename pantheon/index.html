@@ -42,6 +42,11 @@
                 <h3>{{ step.title }}</h3>
                 <p ng-bind-html="step.desc"></p>
             </div>
+            <ul class="step--bubbles">
+                <li ng-repeat="step in steps">
+                    <i ng-class="{ 'fa-circle' : $index === currentStep , 'fa-circle-o' : $index !== currentStep }" class="fa"></i>
+                </li>
+            </ul>
             <a href="#" class="nav nav-next" ng-if="!isLastStep()" ng-click="nextStep()"><i class="fa fa-angle-right"></i></a>
         </section>
 
