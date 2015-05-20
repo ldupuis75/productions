@@ -2,11 +2,16 @@
 
 var app = angular.module('app', ['lheader']);
 
-app.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
+app.controller('Ctrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.data = { };
     var categories = ['greece', 'africa', 'italy', 'china', 'sushis'];
 
-    $http.get('data/data.csv').then(function(response) {
+    var prefix = '';
+    if ($location.absUrl().indexOf('iframe') >= 0) {
+        prefix = '../';
+    }
+
+    $http.get(prefix + 'data/data.csv').then(function(response) {
         var csvArray = CSVToArray(response.data);
 
         for (var i in categories) {

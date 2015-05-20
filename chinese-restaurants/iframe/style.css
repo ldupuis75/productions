@@ -1,0 +1,9 @@
+section.content {
+    width: 95%;
+    padding-top: 0;
+}
+
+div.histogram {
+    width: 50%;
+    height: 250px;
+}
