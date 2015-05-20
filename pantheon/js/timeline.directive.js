@@ -171,7 +171,7 @@ angular.module('app').directive('axis', ['$timeout', function($timeout) {
                                currentYear + 5])
                       .range([0, width]);
 
-                axis = d3.svg.axis().scale(x).orient('top');
+                axis = d3.svg.axis().scale(x).orient('top').tickFormat(function(t) { return t; });
 
                 svg.selectAll('.axis').remove();
                 svg.append('g').attr('class', 'axis').attr('transform', 'translate(' + margin + ', ' + height + ')')
