@@ -15,6 +15,19 @@ section.cover {
     position: relative;
     top: 0;
     left: 0;
+    background-size: 100% auto;
+    background-position: center;
+    height: auto;
+}
+
+section.cover div.darkfilter {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 section.cover a.nav {
@@ -54,6 +67,7 @@ section.cover h2, section.cover h3 {
 
 section.cover h3 {
     font-size: 4em;
+    text-transform: uppercase;
 }
 
 section.cover p {
@@ -61,6 +75,13 @@ section.cover p {
     font-family: "Proxima Nova Regular";
     font-size: 1em;
     padding-top: 1em;
+    width: 70%;
+}
+
+section.cover p span.slug {
+    font-family: "Trade Gothic Bold Cond";
+    text-transform: uppercase;
+    color: #C42121;
 }
 
 section.cover .step {

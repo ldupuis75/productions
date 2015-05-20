@@ -35,12 +35,13 @@
     <body ng-controller="Ctrl" ng-cloak>
         <lheader></lheader>
 
-        <section class="cover">
+        <section class="cover" ng-style="coverImage">
+            <div class="darkfilter"></div>
             <a href="#" class="nav nav-prev" ng-if="!isFirstStep()" ng-click="prevStep()"><i class="fa fa-angle-left"></i></a>
             <div class="step" ng-repeat="step in steps" ng-if="$index === currentStep">
                 <h2>0{{ $index + 1 }}.</h2>
                 <h3>{{ step.title }}</h3>
-                <p ng-bind-html="step.desc"></p>
+                <span class="slug">{{ step.slug }}</span><p ng-bind-html="step.desc"></p>
             </div>
             <ul class="step--bubbles">
                 <li ng-repeat="step in steps">

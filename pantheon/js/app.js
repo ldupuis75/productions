@@ -35,6 +35,13 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
     $scope.steps = [];
     $scope.currentStep = 0;
 
+    var setCoverImage = function() {
+        $scope.coverImage = { };
+        if ($scope.steps[$scope.currentStep].image.length > 0) {
+            $scope.coverImage['background-image'] = 'url(' + $scope.steps[$scope.currentStep].image + ')';
+        }
+    };
+
     $http.get('data/steps.csv').then(function(response) {
         var csvArray = CSVToArray(response.data);
         var csvHeader = _.first(csvArray.splice(0, 1));
@@ -46,7 +53,8 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 ids : _.map(csvArray[i][csvHeader.Ids].split(','), function(d) {
                     return parseInt(d);
                 }),
-                desc : $sce.trustAsHtml(csvArray[i][csvHeader.Texte])
+                desc : $sce.trustAsHtml('<span class="slug">' + csvArray[i][csvHeader.Slug] + '</span> ' + csvArray[i][csvHeader.Texte]),
+                image : csvArray[i][csvHeader.Image]
             });
 
             if (isNaN($scope.steps[$scope.steps.length - 1].ids[0])) {
@@ -92,6 +100,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         }
         $scope.data = _.clone(allData);
         $scope.filter($scope.steps[$scope.currentStep].ids);
+        setCoverImage();
     });
 
     $scope.filter = function(ids) {
@@ -128,6 +137,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         if (!$scope.isFirstStep()) {
             --$scope.currentStep;
             $scope.filter($scope.steps[$scope.currentStep].ids);
+            setCoverImage();
         }
     };
 
@@ -135,6 +145,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         if (!$scope.isLastStep()) {
             ++$scope.currentStep;
             $scope.filter($scope.steps[$scope.currentStep].ids);
+            setCoverImage();
         }
     };
 }]);
