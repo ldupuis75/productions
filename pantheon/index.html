@@ -5,6 +5,7 @@
 
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-animate.min.js"></script>
         <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.7.0/lodash.min.js"></script>
 
@@ -22,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" >
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
         <link rel="shortcut icon" href="http://s1.libe.com/favicon.ico">
         <link rel="shortcut icon" href="http://s1.libe.com/favicon.png">
@@ -33,29 +35,24 @@
     <body ng-controller="Ctrl" ng-cloak>
         <lheader></lheader>
 
-        <section class="content">
-            <div scrollfix class="controls">
-                <div class="controls-wrapper">
-                    <div class="step" ng-repeat="step in steps" ng-if="$index === currentStep">
-                        <a href="#" ng-click="prevStep()"><i class="fa fa-angle-left" ng-class="{ 'disabled' : isFirstStep() }"></i></a>
-                        <h2>{{ step.title }}</h2>
-                        <a href="#" ng-click="nextStep()"><i class="fa fa-angle-right" ng-class="{ 'disabled' : isLastStep() }"></i></a>
-                        <p>Lorem ipsum Commodo irure anim tempor laborum in labore aute exercitation quis magna officia quis nisi ut quis nostrud consectetur officia anim.</p>
-                        <div ng-if="$last">
-                            <select ng-change="filter()" ng-model='activeFilters.gender'>
-                                <option ng-if="$first" ng-repeat="g in filters.gender" value="{{ g }}"></option>
-                                <option ng-if="!$first" ng-repeat="g in filters.gender" value="{{ g }}">{{ g + 's' }}</option>
-                            </select>
-                            <select ng-change="filter()" ng-model="activeFilters.category">
-                                <option value=""></option>
-                                <option ng-repeat="cat in filters.category" value="{{ cat }}">{{ cat }}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div axis data="data"></div>
+        <section class="cover">
+            <a href="#" class="nav nav-prev" ng-if="!isFirstStep()" ng-click="prevStep()"><i class="fa fa-angle-left"></i></a>
+            <div class="step" ng-repeat="step in steps" ng-if="$index === currentStep">
+                <h2>0{{ $index + 1 }}.</h2>
+                <h3>{{ step.title }}</h3>
+                <p ng-bind-html="step.desc"></p>
             </div>
+            <a href="#" class="nav nav-next" ng-if="!isLastStep()" ng-click="nextStep()"><i class="fa fa-angle-right"></i></a>
+        </section>
 
+        <section class="filters" ng-if="isLastStep()">
+            <div class="filters__wrapper">
+                <a class="btn btn-default" ng-repeat="f in filters" ng-click="f.f();filter();">{{ f.label }}</a>
+            </div>
+        </section>
+
+        <section class="content">
+            <div axis data="data"></div>
             <div timeline class="timeline" data="data"></div>
         </section>
     <!-- Chartbeat -->

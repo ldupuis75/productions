@@ -1,32 +1,59 @@
 'use strict';
 
-var app = angular.module('app', ['lheader']);
+var app = angular.module('app', ['lheader', 'ngAnimate']);
 
-app.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
+app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
     var allData = [];
     $scope.data = [];
 
-    $scope.filters = {
-        gender : ['', 'homme', 'femme'],
-        category : []
-    };
+    $scope.filters = [
+        {
+            label : 'Tous',
+            f : function() {
+                $scope.activeFilters = { gender : '' , category : '' };
+            }
+        },
+        {
+            label : 'Femmes',
+            f : function() {
+                $scope.activeFilters = { gender : 'femme' , category : '' };
+            }
+        },
+        {
+            label : 'Hommes',
+            f : function() {
+                $scope.activeFilters = { gender : 'homme' , category : '' };
+            }
+        }
+    ];
 
     $scope.activeFilters = {
         gender : '',
         category : ''
     };
 
-    $scope.steps = [{
-        show : [76],
-        title : 'Lorem ipsum 1'
-    }, {
-        show : [55, 67, 12, 1],
-        title : 'Lorem ipsum 2'
-    }, {
-        show : [],
-        title : 'Lorem ipsum 3'
-    }];
+    $scope.steps = [];
     $scope.currentStep = 0;
+
+    $http.get('data/steps.csv').then(function(response) {
+        var csvArray = CSVToArray(response.data);
+        var csvHeader = _.first(csvArray.splice(0, 1));
+        csvHeader = _.invert(csvHeader);
+
+        for (var i = 0; i < csvArray.length; ++i) {
+            $scope.steps.push({
+                title : csvArray[i][csvHeader.Titre],
+                ids : _.map(csvArray[i][csvHeader.Ids].split(','), function(d) {
+                    return parseInt(d);
+                }),
+                desc : $sce.trustAsHtml(csvArray[i][csvHeader.Texte])
+            });
+
+            if (isNaN($scope.steps[$scope.steps.length - 1].ids[0])) {
+                $scope.steps[$scope.steps.length - 1].ids = [];
+            }
+        }
+    });
 
     $http.get('data/data.csv').then(function(response) {
         var csvArray = CSVToArray(response.data);
@@ -42,15 +69,11 @@ app.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
                 label : csvArray[i][csvHeader['Prénom']] + ' ' + csvArray[i][csvHeader.Nom],
                 gender : csvArray[i][csvHeader.Sexe],
                 category : csvArray[i][csvHeader['Métier']],
-                id : i
+                id : parseInt(csvArray[i][csvHeader.id])
             });
-
-            if ($scope.filters.category.indexOf(csvArray[i][csvHeader['Métier']]) < 0) {
-                $scope.filters.category.push(csvArray[i][csvHeader['Métier']]);
-            }
         }
         $scope.data = _.clone(allData);
-        $scope.filter($scope.steps[$scope.currentStep].show);
+        $scope.filter($scope.steps[$scope.currentStep].ids);
     });
 
     $scope.filter = function(ids) {
@@ -86,14 +109,14 @@ app.controller('Ctrl', ['$scope', '$http', function($scope, $http) {
     $scope.prevStep = function() {
         if (!$scope.isFirstStep()) {
             --$scope.currentStep;
-            $scope.filter($scope.steps[$scope.currentStep].show);
+            $scope.filter($scope.steps[$scope.currentStep].ids);
         }
     };
 
     $scope.nextStep = function() {
         if (!$scope.isLastStep()) {
             ++$scope.currentStep;
-            $scope.filter($scope.steps[$scope.currentStep].show);
+            $scope.filter($scope.steps[$scope.currentStep].ids);
         }
     };
 }]);

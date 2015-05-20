@@ -7,15 +7,17 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
             data : '='
         },
         link : function($scope, $element) {
+            var currentYear = (new Date(Date.now())).getFullYear();
+
             var svg = d3.select($element[0]).append('svg');
             var margin = {
                 top: 0,
                 right: 30,
                 bottom: 30,
                 left: 30,
-                between : 7
+                between : 15
             };
-            var barHeight = 20;
+            var barHeight = margin.between * 1.5;
             var width = $element.width() - margin.left - margin.right;
             var height = margin.top + margin.bottom + ($scope.data.length * (barHeight + margin.between));
             svg.attr('width', width).attr('height', height);
@@ -34,8 +36,15 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                 if (x == null) {
                     x = d3.scale.linear()
                           .domain([d3.min($scope.data, function(d) { return d.birth; }) - 5,
-                                   d3.max($scope.data, function(d) { return d.pantheon; }) + 5])
+                                   currentYear + 5])
                           .range([0, width]);
+
+                    var rulers = svg.insert('g', '.bars').attr('class', 'rulers');
+                    _.each(x.ticks(), function(tick) {
+                        rulers.append('line').attr('class', 'ruler')
+                              .attr('x1', x(tick)).attr('x2', x(tick))
+                              .attr('y1', 0).attr('y2', height);
+                    });
                 }
 
                 // Start drawing
@@ -54,20 +63,17 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                     return a.filteredOut ? 1 : -1;
                 });
 
-                entered.append('rect').attr('class', function(d) { return d.gender; })
+                entered.append('rect').attr('class', 'life')
                    .attr('x', function(d) { return x(d.birth); })
                    .attr('width', function(d) { return x(d.death) - x(d.birth); })
                    .attr('height', barHeight)
                    .attr('y', 0);
 
-                entered.append('line').attr('class', function(d) { return d.gender; })
-                   .attr('x1', function(d) { return x(d.death); })
-                   .attr('x2', function(d) { return x(d.pantheon); })
-                   .attr('y1', 0).attr('y2', 0);
-
-                entered.append('circle').attr('class', function(d) { return 'end ' + d.gender; })
-                   .attr('cx', function(d) { return x(d.pantheon); })
-                   .attr('cy', 0).attr('r', barHeight / 3);
+                entered.append('rect').attr('class', 'pantheon')
+                       .attr('x', function(d) { return x(d.pantheon); })
+                       .attr('width', function(d) { return (x(currentYear) - x(d.pantheon)) || 1; })
+                       .attr('height', barHeight)
+                       .attr('y', 0);
 
                 entered.append('text').text(function(d) { return d.label; })
                    .attr('text-anchor', 'start').attr('alignment-baseline', 'central')
@@ -75,24 +81,17 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                    .attr('y', 0);
 
                 // Re-compute y positions
-                bars.selectAll('.bar').select('rect')
+                bars.selectAll('.bar').select('rect.life')
                     .transition().attr('y', getY)
-                                 .attr('opacity', function(d) { return d.filteredOut ? 0.2 : 1; });
+                                 .style('fill', function(d) { return d.filteredOut ? '#ddd' : '#222'; });
 
-                bars.selectAll('.bar').select('line')
-                    .transition()
-                    .attr('y1', function(d, i) { return getY(d, i) + (barHeight / 2); })
-                    .attr('y2', function(d, i) { return getY(d, i) + (barHeight / 2); })
-                    .attr('opacity', function(d) { return d.filteredOut ? 0.2 : 1; });
-
-                bars.selectAll('.bar').select('circle')
-                    .transition()
-                    .attr('cy', function(d, i) { return getY(d, i) + (barHeight / 2); })
-                    .attr('opacity', function(d) { return d.filteredOut ? 0.2 : 1; });
+                bars.selectAll('.bar').select('rect.pantheon')
+                    .transition().attr('y', getY)
+                                 .style('fill', function(d) { return d.filteredOut ? '#eee' : '#aaa'; });
 
                 bars.selectAll('.bar').select('text')
-                   .transition()
-                   .attr('y', function(d, i) { return barHeight + getY(d, i); });
+                    .transition()
+                    .attr('y', function(d, i) { return barHeight + getY(d, i); });
             };
 
             var refreshWidth = function() {
@@ -102,16 +101,13 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                                d3.max($scope.data, function(d) { return d.pantheon; }) + 5])
                       .range([0, width]);
 
-                bars.selectAll('.bar').select('rect')
+                bars.selectAll('.bar').select('rect.life')
                     .attr('x', function(d) { return x(d.birth); })
                     .attr('width', function(d) { return x(d.death) - x(d.birth); });
 
-                bars.selectAll('.bar').select('line')
-                    .attr('x1', function(d) { return x(d.death); })
-                    .attr('x2', function(d) { return x(d.pantheon); });
-
-                bars.selectAll('.bar').select('circle')
-                    .attr('cx', function(d) { return x(d.pantheon); });
+                bars.selectAll('.bar').select('rect.pantheon')
+                    .attr('x', function(d) { return x(d.pantheon); })
+                    .attr('width', function(d) { return (x(currentYear) - x(d.pantheon)) || 1; });
 
                 bars.selectAll('.bar').select('text')
                     .attr('x', function(d) { return x(d.birth); });
@@ -145,6 +141,7 @@ angular.module('app').directive('axis', ['$timeout', function($timeout) {
             data : '='
         },
         link: function($scope, $element) {
+            var currentYear = (new Date(Date.now())).getFullYear();
             var x, axis;
             var margin = 30;
             var width = $element.width() - (margin * 2);
@@ -155,7 +152,7 @@ angular.module('app').directive('axis', ['$timeout', function($timeout) {
             var refresh = function() {
                 x = d3.scale.linear()
                       .domain([d3.min($scope.data, function(d) { return d.birth; }) - 5,
-                               d3.max($scope.data, function(d) { return d.pantheon; }) + 5])
+                               currentYear + 5])
                       .range([0, width]);
 
                 axis = d3.svg.axis().scale(x).orient('top');
