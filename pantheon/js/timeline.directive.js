@@ -66,28 +66,33 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                 entered.append('rect').attr('class', 'life')
                    .attr('x', function(d) { return x(d.birth); })
                    .attr('width', function(d) { return x(d.death) - x(d.birth); })
-                   .attr('height', barHeight)
-                   .attr('y', 0);
+                   .attr('height', barHeight);
 
-                entered.append('rect').attr('class', 'pantheon')
-                       .attr('x', function(d) { return x(d.pantheon); })
-                       .attr('width', function(d) { return (x(currentYear) - x(d.pantheon)) || 1; })
-                       .attr('height', barHeight)
-                       .attr('y', 0);
+                entered.append('line')
+                       .attr('x1', function(d) { return x(d.death); })
+                       .attr('x2', function(d) { return x(d.pantheon); });
+
+                entered.append('circle').attr('class', 'pantheon')
+                       .attr('cx', function(d) { return x(d.pantheon); })
+                       .attr('r', barHeight / 4);
 
                 entered.append('text').text(function(d) { return d.label; })
                    .attr('text-anchor', 'start').attr('alignment-baseline', 'central')
-                   .attr('x', function(d) { return x(d.birth); })
-                   .attr('y', 0);
+                   .attr('x', function(d) { return x(d.birth); });
 
                 // Re-compute y positions
                 bars.selectAll('.bar').select('rect.life')
                     .transition().attr('y', getY)
                                  .style('fill', function(d) { return d.filteredOut ? '#ddd' : '#222'; });
 
-                bars.selectAll('.bar').select('rect.pantheon')
-                    .transition().attr('y', getY)
-                                 .style('fill', function(d) { return d.filteredOut ? '#eee' : '#aaa'; });
+                bars.selectAll('.bar').select('line').transition()
+                    .attr('y1', function(d, i) { return getY(d, i) + (barHeight / 2); })
+                    .attr('y2', function(d, i) { return getY(d, i) + (barHeight / 2); })
+                    .style('stroke', function(d) { return d.filteredOut ? '#ddd' : '#222'; });
+
+                bars.selectAll('.bar').select('circle.pantheon').transition()
+                    .attr('cy', function(d, i) { return getY(d, i) + (barHeight / 2); })
+                    .style('fill', function(d) { return d.filteredOut ? '#ddd' : '#222'; });
 
                 bars.selectAll('.bar').select('text')
                     .transition()
@@ -101,13 +106,24 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                                d3.max($scope.data, function(d) { return d.pantheon; }) + 5])
                       .range([0, width]);
 
+                svg.selectAll('.rulers').remove();
+                var rulers = svg.insert('g', '.bars').attr('class', 'rulers');
+                _.each(x.ticks(), function(tick) {
+                    rulers.append('line').attr('class', 'ruler')
+                          .attr('x1', x(tick)).attr('x2', x(tick))
+                          .attr('y1', 0).attr('y2', height);
+                });
+
                 bars.selectAll('.bar').select('rect.life')
                     .attr('x', function(d) { return x(d.birth); })
                     .attr('width', function(d) { return x(d.death) - x(d.birth); });
 
-                bars.selectAll('.bar').select('rect.pantheon')
-                    .attr('x', function(d) { return x(d.pantheon); })
-                    .attr('width', function(d) { return (x(currentYear) - x(d.pantheon)) || 1; });
+                bars.selectAll('.bar').select('line')
+                    .attr('x1', function(d) { return x(d.death); })
+                    .attr('x2', function(d) { return x(d.pantheon); });
+
+                bars.selectAll('.bar').select('circle.pantheon')
+                    .attr('cx', function(d) { return x(d.pantheon); });
 
                 bars.selectAll('.bar').select('text')
                     .attr('x', function(d) { return x(d.birth); });

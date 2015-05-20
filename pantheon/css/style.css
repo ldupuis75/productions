@@ -109,6 +109,10 @@ svg {
     width: 100%;
 }
 
+svg.axis {
+    background: #fff;
+}
+
 svg .axis text {
     font-family: "Trade Gothic Bold Cond";
 }
@@ -124,12 +128,17 @@ svg .rulers line.ruler {
     stroke: #dedede;
 }
 
-svg .bar rect { stroke: none; }
+svg .bar rect {
+    stroke: none;
+}
+
+svg .bar line {
+    stroke-width: 2px;
+}
 
 svg .bar text {
-    display: none;
-    fill: #000;
-    font-family: 'Proxima Nova Regular';
-    font-size: .7em;
+    fill: #fff;
+    font-family: 'Trade Gothic Bold Cond';
+    font-size: .9em;
     transform: translate(.7em, -.6em);
 }
