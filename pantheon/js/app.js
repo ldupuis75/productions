@@ -10,19 +10,19 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         {
             label : 'Tous',
             f : function() {
-                $scope.activeFilters = { gender : '' , category : '' };
+                $scope.activeFilters = { gender : '' , corps : '' };
             }
         },
         {
             label : 'Femmes',
             f : function() {
-                $scope.activeFilters = { gender : 'femme' , category : '' };
+                $scope.activeFilters = { gender : 'femme' , corps : '' };
             }
         },
         {
             label : 'Hommes',
             f : function() {
-                $scope.activeFilters = { gender : 'homme' , category : '' };
+                $scope.activeFilters = { gender : 'homme' , corps : '' };
             }
         }
     ];
@@ -61,6 +61,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
 
         csvHeader = _.invert(csvHeader);
         allData = [];
+        var categories = [];
         for (var i = 0; i < csvArray.length; ++i) {
             allData.push({
                 birth : parseInt(csvArray[i][csvHeader.Naissance]),
@@ -70,8 +71,24 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 gender : csvArray[i][csvHeader.Sexe],
                 category : csvArray[i][csvHeader['Métier']],
                 id : parseInt(csvArray[i][csvHeader.id]),
-                fadedout : [62, 52].indexOf(parseInt(csvArray[i][csvHeader.id])) >= 0
+                fadedout : [62, 52].indexOf(parseInt(csvArray[i][csvHeader.id])) >= 0,
+                corps : csvArray[i][csvHeader.Corps]
             });
+
+            var category = allData[allData.length - 1].corps;
+            if (categories.indexOf(category) < 0) {
+                categories.push(category);
+                if (category !== 'pas en son nom propre') {
+                    $scope.filters.push({
+                        label : category,
+                        f : (function(category) {
+                            return function() {
+                                $scope.activeFilters = { gender : '' , corps : category };
+                            };
+                        })(category)
+                    });
+                }
+            }
         }
         $scope.data = _.clone(allData);
         $scope.filter($scope.steps[$scope.currentStep].ids);

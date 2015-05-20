@@ -45,7 +45,7 @@
             <a href="#" class="nav nav-next" ng-if="!isLastStep()" ng-click="nextStep()"><i class="fa fa-angle-right"></i></a>
         </section>
 
-        <section class="filters" ng-if="isLastStep()">
+        <section class="filters">
             <div class="filters__wrapper">
                 <a class="btn btn-default" ng-repeat="f in filters" ng-click="f.f();filter();">{{ f.label }}</a>
             </div>
