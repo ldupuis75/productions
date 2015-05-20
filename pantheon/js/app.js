@@ -69,7 +69,8 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 label : csvArray[i][csvHeader['Prénom']] + ' ' + csvArray[i][csvHeader.Nom],
                 gender : csvArray[i][csvHeader.Sexe],
                 category : csvArray[i][csvHeader['Métier']],
-                id : parseInt(csvArray[i][csvHeader.id])
+                id : parseInt(csvArray[i][csvHeader.id]),
+                fadedout : [62, 52].indexOf(parseInt(csvArray[i][csvHeader.id])) >= 0
             });
         }
         $scope.data = _.clone(allData);
