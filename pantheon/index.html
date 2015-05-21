@@ -53,9 +53,17 @@
                 <a href="#" class="nav nav-next" ng-if="!isLastStep()" ng-click="nextStep()"><i class="fa fa-angle-right"></i></a>
             </section>
 
-            <section class="filters">
+            <section class="filters hidden-xs">
                 <div class="filters__wrapper">
                     <a class="btn btn-default" ng-repeat="f in filters" ng-click="f.f();filter();">{{ f.label }}</a>
+                </div>
+            </section>
+
+            <section class="filters hidden-sm hidden-md hidden-lg">
+                <div class="filters__wrapper">
+                    <select ng-init="$parent.selectedFilter='Tous'" class="form-control" ng-change="selectFilter()" ng-model="$parent.selectedFilter">
+                        <option ng-repeat="f in filters" ng-value="f.label">{{ f.label }}</option>
+                    </select>
                 </div>
             </section>
 

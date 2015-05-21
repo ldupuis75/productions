@@ -178,3 +178,14 @@ svg .bar text {
     font-size: .9em;
     transform: translate(.7em, -.6em);
 }
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    section.cover {
+        background-size:auto 100%;
+    }
+    section.content {
+        width: 100%;
+    }
+}

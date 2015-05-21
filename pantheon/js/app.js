@@ -107,6 +107,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
 
     $scope.filter = function(ids) {
         if (ids == null || ids.length <= 0) {
+            console.debug($scope.activeFilters);
             $scope.data = _.map(allData, function(datum) {
                 datum.filteredOut = false;
 
@@ -154,6 +155,16 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
             ++$scope.currentStep;
             $scope.filter($scope.steps[$scope.currentStep].ids);
             setCoverImage();
+        }
+    };
+
+    $scope.selectFilter = function() {
+        for (var i = 0; i < $scope.filters.length; ++i) {
+            if ($scope.filters[i].label === $scope.selectedFilter) {
+                $scope.filters[i].f();
+                $scope.filter();
+                break;
+            }
         }
     };
 }]);
