@@ -209,11 +209,7 @@ svg .bar text {
 
     section.cover h2 {
         font-size: 4em;
-    }
-
-    section.cover h3 {
-        font-size: 2em;
-        margin-top: 10px;
+        line-height: 1em;
     }
 
     section.cover a.nav {

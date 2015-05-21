@@ -44,8 +44,9 @@
                 <div class="darkfilter"></div>
                 <a href="#" class="nav nav-prev" ng-if="!isFirstStep()" ng-click="prevStep()"><i class="fa fa-angle-left"></i></a>
                 <div class="step" ng-repeat="step in steps" ng-if="$index === currentStep">
-                    <h2>0{{ $index + 1 }}.</h2>
-                    <h3>{{ step.title }}</h3>
+                    <h2 class="hidden-xs">0{{ $index + 1 }}.</h2>
+                    <h3 class="hidden-xs">{{ step.title }}</h3>
+                    <h2 class="hidden-sm hidden-md hidden-lg">0{{ $index + 1 }}. {{ step.title }}</h3>
                     <p ng-bind-html="step.desc" class="hidden-xs"></p>
                     <p ng-bind-html="step.mobileDesc" class="hidden-sm hidden-md hidden-lg"></p>
                 </div>
