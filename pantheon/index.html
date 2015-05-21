@@ -18,6 +18,7 @@
 
         <script src="directives/lheader/lheader.directive.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/scrollfix.directive.js"></script>
         <script src="js/timeline.directive.js"></script>
 
         <link rel="stylesheet" type="text/css" href="css/style.css" >
@@ -33,34 +34,36 @@
     </head>
 
     <body ng-controller="Ctrl" ng-cloak>
-        <lheader></lheader>
+        <div ng-if="steps.length > 0">
+            <lheader></lheader>
 
-        <section class="cover" ng-style="coverImage">
-            <div class="darkfilter"></div>
-            <a href="#" class="nav nav-prev" ng-if="!isFirstStep()" ng-click="prevStep()"><i class="fa fa-angle-left"></i></a>
-            <div class="step" ng-repeat="step in steps" ng-if="$index === currentStep">
-                <h2>0{{ $index + 1 }}.</h2>
-                <h3>{{ step.title }}</h3>
-                <span class="slug">{{ step.slug }}</span><p ng-bind-html="step.desc"></p>
-            </div>
-            <ul class="step--bubbles">
-                <li ng-repeat="step in steps">
-                    <i ng-class="{ 'fa-circle' : $index === currentStep , 'fa-circle-o' : $index !== currentStep }" class="fa"></i>
-                </li>
-            </ul>
-            <a href="#" class="nav nav-next" ng-if="!isLastStep()" ng-click="nextStep()"><i class="fa fa-angle-right"></i></a>
-        </section>
+            <section class="cover" ng-style="coverImage">
+                <div class="darkfilter"></div>
+                <a href="#" class="nav nav-prev" ng-if="!isFirstStep()" ng-click="prevStep()"><i class="fa fa-angle-left"></i></a>
+                <div class="step" ng-repeat="step in steps" ng-if="$index === currentStep">
+                    <h2>0{{ $index + 1 }}.</h2>
+                    <h3>{{ step.title }}</h3>
+                    <span class="slug">{{ step.slug }}</span><p ng-bind-html="step.desc"></p>
+                </div>
+                <ul class="step--bubbles">
+                    <li ng-repeat="step in steps">
+                        <i ng-class="{ 'fa-circle' : $index === currentStep , 'fa-circle-o' : $index !== currentStep }" class="fa"></i>
+                    </li>
+                </ul>
+                <a href="#" class="nav nav-next" ng-if="!isLastStep()" ng-click="nextStep()"><i class="fa fa-angle-right"></i></a>
+            </section>
 
-        <section class="filters">
-            <div class="filters__wrapper">
-                <a class="btn btn-default" ng-repeat="f in filters" ng-click="f.f();filter();">{{ f.label }}</a>
-            </div>
-        </section>
+            <section class="filters">
+                <div class="filters__wrapper">
+                    <a class="btn btn-default" ng-repeat="f in filters" ng-click="f.f();filter();">{{ f.label }}</a>
+                </div>
+            </section>
 
-        <section class="content">
-            <div axis data="data" class="axis"></div>
-            <div timeline class="timeline" data="data"></div>
-        </section>
+            <section class="content">
+                <div axis data="data" class="axis" scrollfix="50"></div>
+                <div timeline class="timeline" data="data"></div>
+            </section>
+        </div>
     <!-- Chartbeat -->
     <script type='text/javascript'>
         var _sf_async_config={};

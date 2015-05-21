@@ -117,8 +117,8 @@ section.filters div.filters__wrapper {
 }
 
 section.content {
+    position: relative;
     width: 75%;
-    height: 100%;
     margin: 0 auto;
     font-family: Georgia, serif;
     -webkit-box-sizing: border-box;
@@ -145,7 +145,7 @@ svg {
     width: 100%;
 }
 
-svg.axis {
+.axis, .axis svg {
     background: #fff;
 }
 

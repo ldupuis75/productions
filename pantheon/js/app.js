@@ -5,6 +5,7 @@ var app = angular.module('app', ['lheader', 'ngAnimate']);
 app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
     var allData = [];
     $scope.data = [];
+    $scope.resetFixed = false;
 
     $scope.filters = [
         {
@@ -61,6 +62,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 $scope.steps[$scope.steps.length - 1].ids = [];
             }
         }
+        $scope.resetFixed = true;
     });
 
     $http.get('data/data.csv').then(function(response) {
