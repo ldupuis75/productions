@@ -110,6 +110,7 @@ section.cover .step--bubbles i:last-of-type {
 
 section.filters {
     background: #dedede;
+    z-index: 1000;
 }
 
 section.filters div.filters__wrapper {
