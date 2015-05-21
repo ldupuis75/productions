@@ -60,7 +60,34 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                 entered.append('rect').attr('class', 'life')
                    .attr('x', function(d) { return x(d.birth); })
                    .attr('width', function(d) { return x(d.death) - x(d.birth); })
-                   .attr('height', barHeight);
+                   .attr('height', barHeight)
+                   .on('mouseenter', function(d) {
+                        var event = d3.event;
+
+                        jQuery($element).popover('destroy');
+                        jQuery($element).popover({
+                            title : d.label,
+                            trigger : 'click',
+                            container : 'body',
+                            html : true,
+                            animation : false,
+                            content : '<p>' + d.birth + ' - ' + d.death + '</p>' +
+                                      '<p><i class="fa fa-university"></i> ' + d.pantheon + '</p>' +
+                                      '<p>' + d.category + '</p>',
+                            placement : 'bottom'
+                        }).on('shown.bs.popover', function() {
+                            var y = event.pageY;
+                            if (event.pageY > jQuery('body').height() - (jQuery('.popover').height() * 2)) {
+                                y -= jQuery('.popover').height();
+                            }
+                            jQuery('.popover').css({
+                                top : y,
+                                left : event.pageX
+                            });
+                        }).popover('show');
+                   }).on('mouseleave', function() {
+                        jQuery($element).popover('destroy');
+                   });
 
                 entered.append('line')
                        .attr('x1', function(d) { return x(d.death); })

@@ -180,15 +180,19 @@ svg .bar text {
     font-family: 'Trade Gothic Bold Cond';
     font-size: 1em;
     transform: translate(.7em, -.6em);
+    pointer-events: none;
 }
 
-
-.mobile {
-    display: none;
+.popover > .arrow {
+    display: none !important;
 }
 
 
 /* Mobile */
+.mobile {
+    display: none;
+}
+
 @media (max-device-width: 768px) {
     section.cover {
         background-size:auto 100%;
