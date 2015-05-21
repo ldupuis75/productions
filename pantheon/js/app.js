@@ -51,11 +51,11 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         for (var i = 0; i < csvArray.length; ++i) {
             $scope.steps.push({
                 title : csvArray[i][csvHeader.Titre],
-                ids : _.map(csvArray[i][csvHeader.Ids].split(','), function(d) {
-                    return parseInt(d);
-                }),
-                desc : $sce.trustAsHtml('<span class="slug">' + csvArray[i][csvHeader.Slug] + '</span> ' + csvArray[i][csvHeader.Texte]),
-                mobileDesc : $sce.trustAsHtml('<span class="slug">' + csvArray[i][csvHeader.Slug] + '</span> ' + csvArray[i][csvHeader['Texte mobile']]),
+                ids : _.map(csvArray[i][csvHeader.Ids].split(','), function(d) { return parseInt(d); }),
+                desc : $sce.trustAsHtml('<span class="slug">' + csvArray[i][csvHeader.Slug] +
+                                        '</span> ' + csvArray[i][csvHeader.Texte]),
+                mobileDesc : $sce.trustAsHtml('<span class="slug">' + csvArray[i][csvHeader.Slug] +
+                                              '</span> ' + csvArray[i][csvHeader['Texte mobile']]),
                 image : csvArray[i][csvHeader.Image]
             });
 
@@ -147,19 +147,11 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
     };
 
     $scope.prevStep = function() {
-        if (!$scope.isFirstStep()) {
-            --$scope.currentStep;
-            $scope.filter($scope.steps[$scope.currentStep].ids);
-            setCoverImage();
-        }
+        $scope.goToStep($scope.currentStep - 1);
     };
 
     $scope.nextStep = function() {
-        if (!$scope.isLastStep()) {
-            ++$scope.currentStep;
-            $scope.filter($scope.steps[$scope.currentStep].ids);
-            setCoverImage();
-        }
+        $scope.goToStep($scope.currentStep + 1);
     };
 
     $scope.goToStep = function(index) {
