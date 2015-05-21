@@ -53,14 +53,8 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                 bar.exit().remove();
 
                 bar.sort(function(a, b) {
-                    return d3.descending(a.pantheon, b.pantheon);
-                });
-
-                bar.sort(function(a, b) {
-                    if (a.filteredOut === b.filteredOut) {
-                        return 0;
-                    }
-                    return a.filteredOut ? 1 : -1;
+                    return d3.ascending(a.filteredOut, b.filteredOut) ||
+                           d3.descending(a.pantheon, b.pantheon);
                 });
 
                 entered.append('rect').attr('class', 'life')
