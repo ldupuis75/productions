@@ -47,7 +47,9 @@
                 </div>
                 <ul class="step--bubbles">
                     <li ng-repeat="step in steps">
-                        <i ng-class="{ 'fa-circle' : $index === currentStep , 'fa-circle-o' : $index !== currentStep }" class="fa"></i>
+                        <a href="#" ng-click="goToStep($index)">
+                            <i ng-class="{ 'fa-circle' : $index === currentStep , 'fa-circle-o' : $index !== currentStep }" class="fa"></i>
+                        </a>
                     </li>
                 </ul>
                 <a href="#" class="nav nav-next" ng-if="!isLastStep()" ng-click="nextStep()"><i class="fa fa-angle-right"></i></a>

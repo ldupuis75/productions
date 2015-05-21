@@ -158,6 +158,14 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         }
     };
 
+    $scope.goToStep = function(index) {
+        if ($scope.steps[index] != null) {
+            $scope.currentStep = index;
+            $scope.filter($scope.steps[$scope.currentStep].ids);
+            setCoverImage();
+        }
+    };
+
     $scope.selectFilter = function() {
         for (var i = 0; i < $scope.filters.length; ++i) {
             if ($scope.filters[i].label === $scope.selectedFilter) {

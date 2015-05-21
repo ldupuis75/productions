@@ -97,9 +97,12 @@ section.cover .step--bubbles {
 }
 
 section.cover .step--bubbles li {
-    color: #fff;
     margin-right: 5px;
     display: inline-block;
+}
+
+section.cover .step--bubbles li a {
+    color: #fff;
 }
 
 section.cover .step--bubbles i:last-of-type {
@@ -185,7 +188,12 @@ svg .bar text {
     section.cover {
         background-size:auto 100%;
     }
+
     section.content {
         width: 100%;
+    }
+
+    select.form-control {
+        margin-top: 5px;
     }
 }
