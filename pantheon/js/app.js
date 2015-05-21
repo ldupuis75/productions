@@ -127,6 +127,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 gender : '',
                 category : ''
             };
+            $scope.selectedFilter = 'Tous';
             $scope.data = _.map(allData, function(datum) {
                 datum.filteredOut = ids.indexOf(datum.id) < 0;
                 return datum;
