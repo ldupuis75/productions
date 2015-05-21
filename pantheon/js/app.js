@@ -132,6 +132,8 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 return datum;
             });
         }
+
+        $scope.data = _.sortByOrder($scope.data, ['pantheon', 'filteredOut'], [false, true]);
     };
 
     $scope.isFirstStep = function() {
