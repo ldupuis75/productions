@@ -113,7 +113,7 @@ section.filters {
 section.filters div.filters__wrapper {
     width: 75%;
     margin: 0 auto;
-    padding: 10px 40px;
+    padding: 5px 40px 10px 40px;
 }
 
 section.content {
@@ -136,7 +136,7 @@ em {
 }
 
 .btn-default {
-    margin-right: 5px;
+    margin: 5px 5px 0 0;
 }
 
 /* SVG */
