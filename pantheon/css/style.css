@@ -77,6 +77,11 @@ section.cover p {
     width: 70%;
 }
 
+section.cover p a {
+    color: inherit;
+    text-decoration: underline;
+}
+
 section.cover p span.slug {
     font-family: "Trade Gothic Bold Cond";
     text-transform: uppercase;

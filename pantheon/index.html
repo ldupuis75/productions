@@ -85,6 +85,7 @@
                         <p>{{ person.birth }} - {{ person.death }}</p>
                         <p><i class="fa fa-university"></i> {{ person.pantheon }}</p>
                         <p>{{ person.category }}</p>
+                        <p ng-if="person.lien.length > 0"><a ng-href="{{ person.lien }}">En savoir plus</a>.</p>
                     </div>
                 </div>
             </section>

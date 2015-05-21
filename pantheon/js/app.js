@@ -83,7 +83,8 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 category : csvArray[i][csvHeader['Métier']],
                 id : parseInt(csvArray[i][csvHeader.id]),
                 fadedout : [62, 52].indexOf(parseInt(csvArray[i][csvHeader.id])) >= 0,
-                corps : csvArray[i][csvHeader.Corps]
+                corps : csvArray[i][csvHeader.Corps],
+                lien : csvArray[i][csvHeader.Lien]
             });
 
             var category = allData[allData.length - 1].corps;
