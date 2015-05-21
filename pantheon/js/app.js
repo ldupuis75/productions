@@ -113,7 +113,9 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 for (var i in $scope.activeFilters) {
                     if ($scope.activeFilters.hasOwnProperty(i) &&
                         $scope.activeFilters[i].length > 0) {
+                        /* jslint bitwise: true */
                         datum.filteredOut |= datum[i] !== $scope.activeFilters[i];
+                        /* jslint bitwise: false */
                     }
                 }
 
