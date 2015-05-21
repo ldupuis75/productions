@@ -55,6 +55,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                     return parseInt(d);
                 }),
                 desc : $sce.trustAsHtml('<span class="slug">' + csvArray[i][csvHeader.Slug] + '</span> ' + csvArray[i][csvHeader.Texte]),
+                mobileDesc : $sce.trustAsHtml('<span class="slug">' + csvArray[i][csvHeader.Slug] + '</span> ' + csvArray[i][csvHeader['Texte mobile']]),
                 image : csvArray[i][csvHeader.Image]
             });
 
