@@ -120,6 +120,10 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
                 return datum;
             });
         } else {
+            $scope.activeFilters = {
+                gender : '',
+                category : ''
+            };
             $scope.data = _.map(allData, function(datum) {
                 datum.filteredOut = ids.indexOf(datum.id) < 0;
                 return datum;
