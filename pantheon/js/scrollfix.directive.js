@@ -17,19 +17,18 @@ angular.module('app').directive('scrollfix', ['$timeout', function($timeout) {
                 reset();
             }, 1);
 
-            angular.element(window).on('wheel', function(event) {
+            angular.element(window).on('scroll', function(event) {
                 if (event.currentTarget.scrollY <= baseTop) {
                     $element.css({
                         position : 'relative',
                         top : '0',
-                        'padding-right' : '0'
+                        width : 'auto',
                     });
                 } else {
                     $element.css({
                         position : 'fixed',
                         top : attrs.scrollfix + 'px',
                         width : '100%',
-                        'padding-right' : '60px'
                     });
                 }
             });

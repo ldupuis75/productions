@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('app', ['lheader', 'ngAnimate']);
+var app = angular.module('app', ['lheader', 'ngTouch']);
 
 app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
     var allData = [];
@@ -107,7 +107,6 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
 
     $scope.filter = function(ids) {
         if (ids == null || ids.length <= 0) {
-            console.debug($scope.activeFilters);
             $scope.data = _.map(allData, function(datum) {
                 datum.filteredOut = false;
 
