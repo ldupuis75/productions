@@ -104,16 +104,16 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                 // Re-compute y positions
                 bars.selectAll('.bar').select('rect.life')
                     .transition().attr('y', getY)
-                                 .style('fill', function(d) { return d.filteredOut || d.fadedout ? '#ddd' : '#222'; });
+                                 .style('fill', function(d) { return d.filteredOut ? '#ddd' : (d.fadedout ? '#867D7A' : '#222'); });
 
                 bars.selectAll('.bar').select('line').transition()
                     .attr('y1', function(d, i) { return getY(d, i) + (barHeight / 2); })
                     .attr('y2', function(d, i) { return getY(d, i) + (barHeight / 2); })
-                    .style('stroke', function(d) { return d.filteredOut || d.fadedout ? '#ddd' : '#222'; });
+                    .style('stroke', function(d) { return d.filteredOut ? '#ddd' : (d.fadedout ? '#867D7A' : '#222'); });
 
                 bars.selectAll('.bar').select('circle.pantheon').transition()
                     .attr('cy', function(d, i) { return getY(d, i) + (barHeight / 2); })
-                    .style('fill', function(d) { return d.filteredOut || d.fadedout ? '#ddd' : '#222'; });
+                    .style('fill', function(d) { return d.filteredOut ? '#ddd' : (d.fadedout ? '#867D7A' : '#222'); });
 
                 bars.selectAll('.bar').select('text')
                     .transition()

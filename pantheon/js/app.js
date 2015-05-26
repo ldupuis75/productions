@@ -40,6 +40,13 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         $scope.coverImage = { };
         if ($scope.steps[$scope.currentStep].image.length > 0) {
             $scope.coverImage['background-image'] = 'url(' + $scope.steps[$scope.currentStep].image + ')';
+            if ($scope.currentStep === 0) {
+                $scope.coverImage['background-position'] = 'center bottom';
+            } else if ($scope.currentStep === 1) {
+                $scope.coverImage['background-position'] = 'center top';
+            } else {
+                $scope.coverImage['background-position'] = 'center';
+            }
         }
     };
 
@@ -64,48 +71,49 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
             }
         }
         $scope.resetFixed = true;
-    });
 
-    $http.get('data/data.csv').then(function(response) {
-        var csvArray = CSVToArray(response.data);
-        var csvHeader = _.first(csvArray.splice(0, 1));
+        $http.get('data/data.csv').then(function(response) {
+            var csvArray = CSVToArray(response.data);
+            var csvHeader = _.first(csvArray.splice(0, 1));
 
-        csvHeader = _.invert(csvHeader);
-        allData = [];
-        var categories = [];
-        for (var i = 0; i < csvArray.length; ++i) {
-            allData.push({
-                birth : parseInt(csvArray[i][csvHeader.Naissance]),
-                death : parseInt(csvArray[i][csvHeader.Mort]),
-                pantheon : parseInt(csvArray[i][csvHeader['Panthéonisation']]),
-                label : csvArray[i][csvHeader['Prénom']] + ' ' + csvArray[i][csvHeader.Nom],
-                gender : csvArray[i][csvHeader.Sexe],
-                category : csvArray[i][csvHeader['Métier']],
-                id : parseInt(csvArray[i][csvHeader.id]),
-                fadedout : [62, 52].indexOf(parseInt(csvArray[i][csvHeader.id])) >= 0,
-                corps : csvArray[i][csvHeader.Corps],
-                lien : csvArray[i][csvHeader.Lien]
-            });
+            csvHeader = _.invert(csvHeader);
+            allData = [];
+            var categories = [];
+            for (var i = 0; i < csvArray.length; ++i) {
+                allData.push({
+                    birth : parseInt(csvArray[i][csvHeader.Naissance]),
+                    death : parseInt(csvArray[i][csvHeader.Mort]),
+                    pantheon : parseInt(csvArray[i][csvHeader['Panthéonisation']]),
+                    label : csvArray[i][csvHeader['Prénom']] + ' ' + csvArray[i][csvHeader.Nom],
+                    gender : csvArray[i][csvHeader.Sexe],
+                    category : $sce.trustAsHtml(csvArray[i][csvHeader['Métier']]),
+                    id : parseInt(csvArray[i][csvHeader.id]),
+                    fadedout : [62, 52].indexOf(parseInt(csvArray[i][csvHeader.id])) >= 0,
+                    corps : csvArray[i][csvHeader.Corps],
+                    lien : csvArray[i][csvHeader.Lien]
+                });
 
-            var category = allData[allData.length - 1].corps;
-            if (categories.indexOf(category) < 0) {
-                categories.push(category);
-                if (category !== 'pas en son nom propre') {
-                    $scope.filters.push({
-                        label : category,
-                        f : (function(category) {
-                            return function() {
-                                $scope.activeFilters = { gender : '' , corps : category };
-                            };
-                        })(category)
-                    });
+                var category = allData[allData.length - 1].corps;
+                if (categories.indexOf(category) < 0) {
+                    categories.push(category);
+                    if (category !== 'pas en son nom propre') {
+                        $scope.filters.push({
+                            label : category,
+                            f : (function(category) {
+                                return function() {
+                                    $scope.activeFilters = { gender : '' , corps : category };
+                                };
+                            })(category)
+                        });
+                    }
                 }
             }
-        }
-        $scope.data = _.clone(allData);
-        $scope.filter($scope.steps[$scope.currentStep].ids);
-        setCoverImage();
+            $scope.data = _.clone(allData);
+            $scope.filter($scope.steps[$scope.currentStep].ids);
+            setCoverImage();
+        });
     });
+
 
     $scope.filter = function(ids) {
         if (ids == null || ids.length <= 0) {
