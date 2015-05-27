@@ -41,7 +41,7 @@ app.controller('Ctrl', ['$scope', '$http', '$sce', function($scope, $http, $sce)
         if ($scope.steps[$scope.currentStep].image.length > 0) {
             $scope.coverImage['background-image'] = 'url(' + $scope.steps[$scope.currentStep].image + ')';
             if ($scope.currentStep === 0) {
-                $scope.coverImage['background-position'] = 'center bottom';
+                $scope.coverImage['background-position'] = 'center 75%';
             } else if ($scope.currentStep === 1) {
                 $scope.coverImage['background-position'] = 'center top';
             } else {
