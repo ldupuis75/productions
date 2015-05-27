@@ -98,10 +98,10 @@ angular.module('app').directive('timeline', ['$timeout', function($timeout) {
                        .attr('r', barHeight / 4);
 
                 entered.append('text').text(function(d) { return d.label; })
-                   .attr('text-anchor', 'start').attr('alignment-baseline', 'central')
+                   .attr('text-anchor', 'start')
                    .attr('x', function(d) { return x(d.birth); });
 
-                // Re-compute y positions
+                // Re-compute y positions and colors
                 bars.selectAll('.bar').select('rect.life')
                     .transition().attr('y', getY)
                                  .style('fill', function(d) { return d.filteredOut ? '#ddd' : (d.fadedout ? '#867D7A' : '#222'); });

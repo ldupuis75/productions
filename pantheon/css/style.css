@@ -191,14 +191,16 @@ svg .bar text {
     fill: #fff;
     font-family: 'Trade Gothic Bold Cond';
     font-size: 1em;
-    transform: translate(.7em, -.6em);
+    -webkit-transform: translate(10px, -7px);
+       -moz-transform: translate(10px, -7px);
+         -o-transform: translate(10px, -7px);
+            transform: translate(10px, -7px);
     pointer-events: none;
 }
 
 .popover > .arrow {
     display: none !important;
 }
-
 
 /* Mobile */
 .mobile {
