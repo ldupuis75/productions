@@ -2,33 +2,34 @@
 <meta charset="utf-8">
 <html>
   <head>
-    <style>
-      rect.bordered {
-        stroke: #E6E6E6;
-        stroke-width:2px;
-      }
+    <style type="text/css">
+        rect.bordered {
+            stroke: #E6E6E6;
+            stroke-width: 2px;
+        }
 
-      text.mono {
-        font-size: 9pt;
-        font-family: Consolas, courier;
-        fill: #aaa;
-      }
+        text.mono {
+            font-size: 9pt;
+            font-family: Consolas, courier;
+            fill: #aaa;
+        }
 
-      text.axis-workweek {
-        fill: #000;
-      }
+        text.axis-workweek {
+            fill: #000;
+        }
 
-      text.axis-worktime {
-        fill: #000;
-      }
+        text.axis-worktime {
+            fill: #000;
+        }
 
-      div.tooltip {
-        background-color: rgba(0, 0, 0, .6);
-        padding: 5px;
-        border-radius: .3em;
-        color: #fff;
-      }
+        div.tooltip {
+            background-color: rgba(0, 0, 0, .6);
+            padding: 5px;
+            border-radius: .3em;
+            color: #fff;
+        }
     </style>
+
     <script src="//d3js.org/d3.v3.js"></script>
   </head>
   <body>
@@ -129,7 +130,6 @@
                    .transition().duration(1000)
                    .style('fill', function(d) { return colorScale(d.value); });
 
-
             var legend = svg.selectAll('.legend')
                             .data([0].concat(colorScale.quantiles()))
                             .enter().append('g')
@@ -150,7 +150,18 @@
         });
       };
 
-      chart('auber');
+      var toLoad = 'auber';
+      var search = window.location.search.replace('?', '').split('&');
+      for (var i = 0; i < search.length; ++i) {
+          search[i] = search[i].split('=');
+          if (search[i][0] === 'd') {
+              if (['auber', 'chatelet', 'franklin'].indexOf(search[i][1]) >= 0) {
+                  toLoad = search[i][1];
+              }
+              break;
+          }
+      }
+      chart(toLoad);
     </script>
   </body>
 </html>
