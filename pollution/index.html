@@ -5,7 +5,7 @@
     <style>
       rect.bordered {
         stroke: #E6E6E6;
-        stroke-width:2px;   
+        stroke-width:2px;
       }
 
       text.mono {
@@ -21,109 +21,136 @@
       text.axis-worktime {
         fill: #000;
       }
+
+      div.tooltip {
+        background-color: rgba(0, 0, 0, .6);
+        padding: 5px;
+        border-radius: .3em;
+        color: #fff;
+      }
     </style>
-    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="//d3js.org/d3.v3.js"></script>
   </head>
   <body>
     <div id="chart"></div>
 
+    <button onclick="chart('auber')" type="button">Auber</button>
+    <button onclick="chart('chatelet')" type="button">Châtelet</button>
+    <button onclick="chart('franklin')" type="button">Franklin</button>
+
     <script type="text/javascript">
-      var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-          width = 960 - margin.left - margin.right,
-          height = 430 - margin.top - margin.bottom,
+      var margin = { top : 50 , right : 50 , bottom : 50 , left : 50 },
+          width = 580 - margin.left - margin.right,
+          height = 280 - margin.top - margin.bottom,
           gridSize = Math.floor(width / 24),
-          legendElementWidth = gridSize*2,
-          buckets = 9,
-          colors = ["#ffffcc","#ffeda0","#fed976","#feb24c","#fd8d3c","#fc4e2a","#e31a1c","#bd0026","#800026"],
-          days = ["L", "M", "Me", "J", "V", "S", "D"],
-          times = ["00","01","02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"];
+          legendElementWidth = gridSize * 2,
+          colors = ['#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c',
+                    '#fc4e2a', '#e31a1c', '#bd0026', '#800026'],
+          days = ['L', 'M', 'Me', 'J', 'V', 'S', 'D'],
+          times = ['00','01','02', '03', '04', '05', '06', '07', '08', '09',
+                   '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+                   '20', '21', '22', '23'];
+
+      var tooltip = d3.select('body')
+                      .append('div').attr('class', 'tooltip')
+                      .style({
+                          position: 'absolute',
+                          'z-index': '10',
+                          visibility: 'hidden'
+                      });
+
+      var chart = function(name) {
+        d3.select('#chart').selectAll('*').remove();
+        d3.tsv('data_' + name + '.tsv',
+          function(d) {
+            return {
+              place: d.place,
+              day: +d.day,
+              hour: +d.hour,
+              value: +d.value
+            };
+          },
+          function(error, data) {
+            var colorScale = d3.scale.quantile()
+                               .domain([0, 331])
+                               .range(colors);
+
+            var svg = d3.select('#chart').append('svg')
+                        .attr('width', width + margin.left + margin.right)
+                        .attr('height', height + margin.top + margin.bottom)
+                        .append('g')
+                        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+            var dayLabels = svg.selectAll('.dayLabel').data(days).enter();
+            dayLabels.append('text')
+                     .text(function (d) { return d; })
+                     .attr('x', 0)
+                     .attr('y', function (d, i) { return i * gridSize; })
+                     .style('text-anchor', 'end')
+                     .attr('transform', 'translate(-6,' + gridSize / 1.5 + ')')
+                     .attr('class', function (d, i) { return 'dayLabel mono axis axis-workweek'; });
+
+            var timeLabels = svg.selectAll('.timeLabel').data(times).enter();
+            timeLabels.append('text')
+                      .text(function(d) { return d; })
+                      .attr('x', function(d, i) { return i * gridSize+1; })
+                      .attr('y', 0)
+                      .style('text-anchor', 'middle')
+                      .attr('transform', 'translate(' + gridSize / 2 + ', -6)')
+                      .attr('class', function(d, i) {
+                          return ((i >= 5 && i <= 23) || (i >= 0 && i <= 1) ? 'timeLabel mono axis axis-worktime'
+                                                                            : 'timeLabel mono axis');
+                      });
+
+            var heatMap = svg.selectAll('.hour').data(data).enter().append('rect');
+            heatMap.attr('x', function(d) { return (d.hour) * gridSize; })
+                   .attr('y', function(d) { return (d.day - 1) * gridSize; })
+                   .attr('rx', 4)
+                   .attr('ry', 4)
+                   .attr('class', 'hour bordered')
+                   .attr('width', gridSize)
+                   .attr('height', gridSize)
+                   .style('fill', colors[0])
+                   .on('mouseover', function(d) {
+                       tooltip.text(Math.round(d.value * 100) / 100)
+                              .style('visibility', 'visible');
+                   })
+                   .on('mousemove', function() {
+                       var x = event.pageX;
+                       if (x > width / 2) {
+                          x -= tooltip[0][0].getBoundingClientRect().width + 10;
+                       } else {
+                          x += 10;
+                       }
+                       tooltip.style('top', (event.pageY - 10) + 'px')
+                              .style('left', x + 'px');
+                   })
+                   .on('mouseout', function() { tooltip.style('visibility', 'hidden'); })
+                   .transition().duration(1000)
+                   .style('fill', function(d) { return colorScale(d.value); });
 
 
-      d3.tsv("data.tsv",
-        function(d) {
-          return {
-            place: +d.place,
-            day: +d.day,
-            hour: +d.hour,
-            value: +d.value
-          };
-        },
-        function(error, data) {
-          var tooltip = d3.select("body")
-          .append("div")
-          .style("position", "absolute")
-          .style("z-index", "10")
-          .style("visibility", "hidden")
+            var legend = svg.selectAll('.legend')
+                            .data([0].concat(colorScale.quantiles()))
+                            .enter().append('g')
+                            .attr('class', 'legend');
 
+            legend.append('rect')
+                  .attr('x', function(d, i) { return legendElementWidth * i; })
+                  .attr('y', height)
+                  .attr('width', legendElementWidth)
+                  .attr('height', gridSize / 2)
+                  .style('fill', function(d, i) { return colors[i]; });
 
-          var colorScale = d3.scale.quantile()
-              .domain([d3.min(data, function (d) { return d.value; }), d3.max(data, function (d) { return d.value; })])
-              .range(colors);
+            legend.append('text')
+                  .attr('class', 'mono')
+                  .attr('x', function(d, i) { return legendElementWidth * i; })
+                  .attr('y', height + gridSize)
+                  .text(function(d) { return '≥ ' + Math.round(d); });
+        });
+      };
 
-          var svg = d3.select("#chart").append("svg")
-              .attr("width", width + margin.left + margin.right)
-              .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-              .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-          var dayLabels = svg.selectAll(".dayLabel")
-              .data(days)
-              .enter().append("text")
-                .text(function (d) { return d; })
-                .attr("x", 0)
-                .attr("y", function (d, i) { return i * gridSize; })
-                .style("text-anchor", "end")
-                .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
-                .attr("class", function (d, i) { return "dayLabel mono axis axis-workweek"; });
-
-          var timeLabels = svg.selectAll(".timeLabel")
-              .data(times)
-              .enter().append("text")
-                .text(function(d) { return d; })
-                .attr("x", function(d, i) { return i * gridSize+1; })
-                .attr("y", 0)
-                .style("text-anchor", "middle")
-                .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-                .attr("class", function(d, i) { return ((i >= 5 && i <= 23)||(i >= 0 && i <= 1) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
-
-          var heatMap = svg.selectAll(".hour")
-              .data(data)
-              .enter().append("rect")
-              .attr("x", function(d) { return (d.hour) * gridSize; })
-              .attr("y", function(d) { return (d.day - 1) * gridSize; })
-              .attr("rx", 4)
-              .attr("ry", 4)
-              .attr("class", "hour bordered")
-              .attr("width", gridSize)
-              .attr("height", gridSize)
-              .style("fill", colors[0])
-              .on("mouseover", function(d){return tooltip.text(d.value).style("visibility", "visible");})
-              .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-              .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-
-          heatMap.transition().duration(1000)
-              .style("fill", function(d) { return colorScale(d.value); });
-
-          heatMap.append("title").text(function(d) { return d.value; });
-              
-          var legend = svg.selectAll(".legend")
-              .data([0].concat(colorScale.quantiles()), function(d) { return d; })
-              .enter().append("g")
-              .attr("class", "legend");
-
-          legend.append("rect")
-            .attr("x", function(d, i) { return legendElementWidth * i; })
-            .attr("y", height)
-            .attr("width", legendElementWidth)
-            .attr("height", gridSize / 2)
-            .style("fill", function(d, i) { return colors[i]; });
-
-          legend.append("text")
-            .attr("class", "mono")
-            .text(function(d) { return "≥ " + Math.round(d); })
-            .attr("x", function(d, i) { return legendElementWidth * i; })
-            .attr("y", height + gridSize);
-      });
+      chart('auber');
     </script>
   </body>
 </html>
