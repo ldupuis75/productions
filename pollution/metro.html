@@ -42,7 +42,7 @@
 
         #chart {
           margin: auto;
-          width: 580px;
+          width: 100%;
         }
 
         menu button {
@@ -58,6 +58,11 @@
           padding-top: 7px;
           padding-right: 20px;
           font-size: 15px;
+          cursor: pointer;
+        }
+
+        menu button.active {
+          background-color: #A20000;
         }
 
         legende {
@@ -73,9 +78,9 @@
   <body>
 
     <menu>
-      <button onclick="chart('auber')" type="button">Auber</button>
-      <button onclick="chart('chatelet')" type="button">Châtelet</button>
-      <button onclick="chart('franklin')" type="button">Franklin</button>
+      <button class="btn auber" onclick="chart('auber')" type="button">Auber</button>
+      <button class="btn chatelet" onclick="chart('chatelet')" type="button">Châtelet</button>
+      <button class="btn franklin" onclick="chart('franklin')" type="button">Franklin</button>
     </menu>
     <div id="chart"></div>
     <legende>Taux de particules fines PM10 en µg/m3 en moyenne par tranche horaire et par jour de la semaine.</legende>
@@ -83,8 +88,8 @@
     <script type="text/javascript">
       var margin = { top : 50 , right : 50 , bottom : 50 , left : 50 },
           width = 580 - margin.left - margin.right,
-          height = 280 - margin.top - margin.bottom,
           gridSize = Math.floor(width / 24),
+          height = gridSize * 8,
           legendElementWidth = gridSize * 2,
           colors = ['#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c',
                     '#fc4e2a', '#e31a1c', '#bd0026', '#800026','#000000'],
@@ -102,6 +107,9 @@
                       });
 
       var chart = function(name) {
+        d3.selectAll('.btn').classed('active', false);
+        d3.select('.' + name).classed('active', true);
+
         d3.select('#chart').selectAll('*').remove();
         d3.tsv('data_' + name + '.tsv',
           function(d) {
@@ -122,6 +130,10 @@
                              .domain([0, 350])
                              .range(colors);
 
+            width = d3.select('#chart')[0][0].getBoundingClientRect().width - margin.left - margin.right;
+            gridSize = Math.floor(width / 24);
+            height = gridSize * 8;
+            legendElementWidth = (width / colors.length) - 1;
             var svg = d3.select('#chart').append('svg')
                         .attr('width', width + margin.left + margin.right)
                         .attr('height', height + margin.top + margin.bottom)
