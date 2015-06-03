@@ -73,10 +73,10 @@
   <body>
 
     <menu>
-    <button onclick="chart('auber')" type="button">Auber</button>
-    <button onclick="chart('chatelet')" type="button">Châtelet</button>
-    <button onclick="chart('franklin')" type="button">Franklin</button>
-  </menu>
+      <button onclick="chart('auber')" type="button">Auber</button>
+      <button onclick="chart('chatelet')" type="button">Châtelet</button>
+      <button onclick="chart('franklin')" type="button">Franklin</button>
+    </menu>
     <div id="chart"></div>
     <legende>Taux de particules fines PM10 en µg/m3 en moyenne par tranche horaire et par jour de la semaine.</legende>
 
@@ -163,13 +163,13 @@
                               .style('visibility', 'visible');
                    })
                    .on('mousemove', function() {
-                       var x = event.pageX;
+                       var x = d3.event.pageX;
                        if (x > width / 2) {
                           x -= tooltip[0][0].getBoundingClientRect().width + 10;
                        } else {
                           x += 10;
                        }
-                       tooltip.style('top', (event.pageY - 10) + 'px')
+                       tooltip.style('top', (d3.event.pageY - 10) + 'px')
                               .style('left', x + 'px');
                    })
                    .on('mouseout', function() { tooltip.style('visibility', 'hidden'); })
